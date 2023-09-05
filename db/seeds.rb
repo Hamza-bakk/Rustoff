@@ -42,7 +42,7 @@ items_data = [
         title: "image 4",
         description: "Echantillon de mon travail",
         price: 6.99,
-        image_url: "image4.jpg",
+        image_url: "image4.png",
         alt: "Test",
         created_at: Time.now,
         updated_at: Time.now
