@@ -24,27 +24,29 @@
           </svg>
         </button>
       </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="assets/rust.png" alt="Rustoff logo ampoule">
-        </div>
+      <div class="flex items-center space-x-4">
+        <%= link_to root_path do %>
+          <img class="h-8 w-auto" src="<%= asset_path('rust.png') %>" alt="Rustoff logo ampoule">
+        <% end %>
+
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+            <% if user_signed_in? && current_user.admin? %>
+              <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+            <% end %>
             <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Boutique</a>
             <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Portfolio</a>
             <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">FAQ</a>
           </div>
         </div>
       </div>
-      <div class="flex items-center">
-          <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-white text-xl mr-4 cursor-pointer" href="#"></i>
+      <div class="flex items-center space-x-4">
+        <i class="fa-solid fa-cart-shopping text-gray-300 hover:text-white text-xl mr-4 cursor-pointer" href="#"></i>
         <% if user_signed_in? %>
-            <%= link_to "Mon Profil", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-              <%= form_tag(destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium") do %>
-                <%= submit_tag "Se déconnecter", class: "hover:text-gray-200" %>
-              <% end %>
+          <%= link_to "Mon Profil", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+          <%= form_tag(destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium") do %>
+            <%= submit_tag "Se déconnecter", class: "hover:text-gray-200" %>
+          <% end %>
         <% else %>
           <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_session_path %>">Se connecter</a>
           <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_registration_path %>">S'inscrire</a>
@@ -56,11 +58,12 @@
   <!-- Mobile menu, show/hide based on menu state. -->
   <div class="sm:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Boutique</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Portfolio</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">FAQ</a>
+      <% if user_signed_in? && current_user.admin? %>
+        <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+      <% end %>
+      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Boutique</a>
+      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Portfolio</a>
+      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">FAQ</a>
     </div>
   </div>
 </nav>
