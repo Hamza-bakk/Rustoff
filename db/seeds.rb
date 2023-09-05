@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+items_data = [
+    {
+        title: "Image 1",
+        description: "Echantillon de mon travail",
+        price: 5.99,
+        image_url: "image1.jpg",
+        alt: "Test",
+        created_at: Time.now,
+        updated_at: Time.now
+    },
+    
+    {
+        title: "Image 2",
+        description: "Echantillon de mon travail",
+        price: 4.99,
+        image_url: "image2.jpg",
+        alt: "Test",
+        created_at: Time.now,
+        updated_at: Time.now
+    },
+    
+    
+    {
+        title: "image 3",
+        description: "Echantillon de mon travail",
+        price: 3.99,
+        image_url: "image3.jpg",
+        alt: "Test",
+        created_at: Time.now,
+        updated_at: Time.now
+    },
+    
+    {
+        title: "image 4",
+        description: "Echantillon de mon travail",
+        price: 6.99,
+        image_url: "image4.jpg",
+        alt: "Test",
+        created_at: Time.now,
+        updated_at: Time.now
+    },]
+
+    items_data.each do |data|
+        Item.create(data)
+    end
