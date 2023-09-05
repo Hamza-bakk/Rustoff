@@ -13,10 +13,14 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   </head>
-
-  <body>
-   <p class="notice"><%= notice %></p>
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  <body>
+
+  <nav>
+    <%= render 'layouts/navbar'%>
+  </nav>
+
     <%= yield %>
   </body>
 </html>
