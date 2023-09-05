@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "home#index"
+  get 'welcome_email', to: 'welcome_mailer#welcome_email'
 end
