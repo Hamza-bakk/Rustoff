@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/mentions-legales', to: 'legal_notices#index', as: 'legal_notices'
+  get '/politique-de-confidentialite', to: 'privacy_policy#index', as: 'privacy_policy'
+  get '/politique-de-remboursement', to: 'refund_policy#index', as: 'refund_policy'
   resources :cart_items
   resources :order_items
   resources :orders

@@ -2,3 +2,23 @@ body {
   background-color: #cfd7ff;
 }
 
+.container-footer {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+
+.container-footer h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.container-footer p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
