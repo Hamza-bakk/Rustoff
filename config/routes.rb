@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'static_pages#home'
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
+  get '/portfolio', to: 'portfolio#show', as: 'portfolio'
 end
