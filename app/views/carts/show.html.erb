@@ -9,7 +9,13 @@
     </div>
   <% end %>
 <% else %>
-  <p>Votre panier est vide.</p>
+  <div class="empty-cart-message text-center text-red-600 text-4xl">
+    Votre panier est vide.
+  </div>
+  <div class="text-center mt-4">
+    <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full" %>
+  </div>
 <% end %>
+
 
 
