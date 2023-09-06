@@ -20,7 +20,7 @@
       </div>
       <div class="flex items-center space-x-4">
         <% if user_signed_in? %>
-          <%= link_to cart_path(current_user), class: "text-gray-300 hover:text-white text-xl mr-4 cursor-pointer" do %>
+          <%= link_to cart_path(current_user), class: "text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
             <i class="fa-solid fa-cart-shopping"></i>
           <% end %>
         <% end %>
