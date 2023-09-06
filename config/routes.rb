@@ -29,4 +29,5 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
+  get '/pokemon', to: 'portfolio#pokemon', as: 'pokemon'
 end
