@@ -8,7 +8,7 @@
       <div class="mt-4">
         <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full" %>
         <% if user_signed_in? %>
-          <%= button_to({ controller: "carts", action: "create", item_id: @item.id }, method: :post, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full") do %>
+          <%= button_to({ controller: "cart_items", action: "create", cart_item: { item_id: @item.id, cart_id: current_user.cart.id, quantity: 1 } }, method: :post, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full") do %>
             <i class="fa-solid fa-cart-plus"></i> Ajouter au panier
           <% end %>
         <% end %>

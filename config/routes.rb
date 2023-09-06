@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get '/politique-de-confidentialite', to: 'privacy_policy#index', as: 'privacy_policy'
   get '/politique-de-remboursement', to: 'refund_policy#index', as: 'refund_policy'
   resources :cart_items
+
+  resources :cart_items, only: [:update]
+
+  
   resources :order_items
   resources :orders
   resources :carts

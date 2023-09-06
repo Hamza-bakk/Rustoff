@@ -45,7 +45,12 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to cart_url(@cart), notice: "Cet élément est bien supprimé." }
+        format.html do
+          @cart.cart_items.each do |cart_item|
+            cart_item.update(total_price: cart_item.quantity * cart_item.item.price)
+          end
+          redirect_to cart_url(@cart), notice: "Le panier a été mis à jour avec succès."
+        end
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }

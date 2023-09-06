@@ -3,16 +3,27 @@
     <div class="cart-item">
       <%= image_tag(cart_item.item.image_url) %>
       <p><%= cart_item.item.title %></p>
-      <p>Quantité : <%= cart_item.quantity %></p>
       <p>Prix à l'unité : <%= cart_item.item.price %></p>
+      <p>Quantité : <%= cart_item.quantity.nil? ? 'N/A' : cart_item.quantity %></p>
+      <form action="<%= cart_item_path(cart_item) %>" method="patch">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="quantity">Quantité :</label>
+  <select name="cart_item[quantity]" id="quantity">
+    <% (1..10).each do |quantity| %>
+      <option value="<%= quantity %>" <%= 'selected' if cart_item.quantity == quantity %>>
+        <%= quantity %>
+      </option>
+    <% end %>
+  </select>
+  <input type="submit" value="Mettre à jour la quantité">
+</form>
+      <p>Total : <%= cart_item.quantity.nil? || cart_item.item.price.nil? ? 'N/A' : cart_item.quantity * cart_item.item.price %></p>
       <%= button_to "Supprimer du panier", delete_item_cart_path(@cart, cart_item), method: :delete, class: "btn btn-danger" %>
     </div>
   <% end %>
 <% else %>
   <div class="empty-cart-message text-center text-red-600 text-4xl">
     Votre panier est vide.
-  </div>
-  <div class="text-center mt-4">
     <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full" %>
   </div>
 <% end %>
