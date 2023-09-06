@@ -13,9 +13,16 @@ Rails.application.routes.draw do
 
   resources :items
   devise_for :users
+<<<<<<< HEAD
 
   get 'shop/index'
 
+=======
+  resources :profiles, only: [:show, :edit, :update]
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
+>>>>>>> development
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :profiles, only: [:show, :edit, :update]
   resources :users, only: [:show] do
