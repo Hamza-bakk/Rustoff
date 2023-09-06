@@ -1,19 +1,21 @@
-<div class="p-4">
-  <div class="rounded-lg shadow-md overflow-hidden card-bg-custom-color mt-12 mb-12 ml-12 mr-12">
+<div class="p-2">
+  <div class="rounded-lg shadow-md overflow-hidden bg-gray-800 mt-20 mb-20 ml-20 mr-20">
     <%= image_tag @item.image_url, alt: @item.title, class: "w-full h-auto" %>
     <div class="p-4">
-      <h2 class="text-lg font-semibold mb-2"><%= @item.title %></h2>
-      <p class="text-gray-700 mb-2"><%= @item.description %></p>
+      <h2 class="text-lg text-white font-semibold mb-2"><%= @item.title %></h2>
+      <p class="text-white mb-2"><%= @item.description %></p>
       <p class="text-green-600 font-semibold">€<%= @item.price %></p>
-      <div class="mt-4">
-        <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full" %>
+      <div class="mt-2">
         <% if user_signed_in? %>
-          <%= button_to({ controller: "cart_items", action: "create", cart_item: { item_id: @item.id, cart_id: current_user.cart.id, quantity: 1 } }, method: :post, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-2 px-4 rounded-full") do %>
-            <i class="fa-solid fa-cart-plus"></i> Ajouter au panier
+          <%= form_tag({ controller: "carts", action: "create" }, method: :post, class: "flex items-center") do %>
+            <%= hidden_field_tag "item_id", @item.id %>
+            <label for="quantity" class="text-white font-semibold mr-2">Quantité:</label>
+            <%= number_field_tag "quantity", 1, min: 1, class: "w-12 text-center border rounded-md", id: "quantity" %>
+            <%= submit_tag "Ajouter au panier", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded-full ml-2" %>
           <% end %>
         <% end %>
+        <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-1 px-2 rounded-full text-xs" %>
       </div>
     </div>
   </div>
 </div>
-
