@@ -25,4 +25,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
+
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+end
+
 end
