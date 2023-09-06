@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :carts
+  
+  resources :carts do
+    delete 'cart_items/:cart_item_id', to: 'carts#destroy_item', on: :member, as: :delete_item
+  end
+  
+  
   resources :items
   devise_for :users
   resources :profiles, only: [:show, :edit, :update]
@@ -13,7 +19,7 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
   # Defines the root path route ("/")
   root 'static_pages#home'
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
