@@ -1,0 +1,48 @@
+<div class="flex justify-center items-center h-screen">
+  <div class="flex space-x-4">
+    <div class="w-full max-w-md px-4">
+      <div class="shadow-md rounded px-8 py-6 bg-gray-800">
+        <h2 class="text-2xl text-white font-semibold text-center mb-4">Modifier le profil</h2>
+
+        <%= form_for(@user, url: profile_path, method: :patch, html: { multipart: true }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: @user %>
+
+          <div class="mb-4">
+            <%= f.label :email, class: "block text-white text-sm font-bold mb-2" %>
+            <%= f.email_field :email, class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
+          </div>
+
+          <div class="flex items-center justify-center mt-4">
+            <%= f.submit "Mettre à jour", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          </div>
+        <% end %>
+
+        <%= link_to "Retour", profile_path(@user), class: "mt-5 text-white hover:text-purple-300 font-semibold" %>
+      </div>
+    </div>
+
+    <div class="w-full max-w-md px-4">
+      <div class="shadow-md rounded px-8 py-6 text-white bg-gray-800">
+        <div class="relative">
+          <div class="flex justify-center -mt-8">
+            <% if @user.avatar.attached? %>
+              <%= image_tag @user.avatar, alt: 'avatar', class: "rounded-full border-solid border-white border-2 -mt-3 h-16 w-16" %>
+            <% else %>
+              <img src="/assets/default_avatar.png" class="rounded-full border-solid border-white border-2 -mt-3 h-16 w-16">
+            <% end %>
+          </div>
+
+          <%= form_tag user_avatars_path(@user), multipart: true do %>
+            <h3 class="mb-4 text-lg font-semibold">Changer d'avatar :</h3>
+            <%= file_field_tag :avatar %>
+            <%= submit_tag "Mettre à jour l'avatar", class: "mt-4 bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <% end %>
+
+          <%= link_to "Actualiser la page", nil, class: "mt-4 text-white hover:text-purple-300 font-semibold", onclick: "location.reload();" %>
+        </div>
+
+        <%= link_to "Retour", profile_path(@user), class: "mt-5 text-white hover:text-purple-300 font-semibold" %>
+      </div>
+    </div>
+  </div>
+</div>
