@@ -32,11 +32,17 @@ class CartsController < ApplicationController
       # Récupérez l'élément à ajouter au panier
       @item = Item.find(params[:item_id]) # Assurez-vous que le paramètre :item_id est correctement passé
       
-      # Créez un nouvel élément dans le panier
-      @cart_item = @cart.cart_items.create(item: @item, quantity: params[:quantity])
+      # Utilisez directement params[:quantity] pour obtenir la quantité
+      quantity = params[:quantity].to_i
       
-    else
+      # Créez un nouvel élément dans le panier avec la quantité spécifiée
+      @cart_item = @cart.cart_items.create(item: @item, quantity: quantity)
+      
+      # Redirigez l'utilisateur vers la page du panier
       redirect_to cart_path(@cart), notice: "L'élément a été ajouté au panier."
+    else
+      # Gérez le cas où l'utilisateur n'est pas connecté
+      redirect_to items_path, alert: "Vous devez être connecté pour ajouter des articles au panier."
     end
   end
   
