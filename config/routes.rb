@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :carts
   resources :items
   devise_for :users
+  resources :profiles, only: [:show, :edit, :update]
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

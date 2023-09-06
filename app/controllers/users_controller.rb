@@ -1,6 +1,4 @@
-class UsersController < ApplicationRecord
-  before_action :some_method, only:[:show, :edit, :update, :destroy]
-  has_one_attached :avatar
+class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
