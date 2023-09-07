@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+
   def index
     # Vous pouvez ajouter ici la logique de gestion de la page d'accueil du tableau de bord.
     # Par exemple, récupérer des données de la base de données.
@@ -11,6 +12,10 @@ class DashboardController < ApplicationController
 
   def store
     @item = Item.new
+  end
+
+  def users
+    @users = User.all
   end
   
   # Vous pouvez ajouter d'autres actions de contrôleur ici en fonction de vos besoins.

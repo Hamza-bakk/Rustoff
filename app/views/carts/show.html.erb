@@ -25,9 +25,9 @@
                 <span class="font-bold text-white text-sm"><%= cart_item.item.title %></span>
               </div>
             </div>
-            <span class="text-center w-1/5 text-white font-semibold text-sm"><%= number_to_currency(cart_item.item.price) %></span>
+            <span class="text-center w-1/5 text-white font-semibold text-sm"><%= number_to_currency(cart_item.item.price, unit: '€') %></span>
             <span class="text-center w-1/5 text-white font-semibold text-sm"><%= cart_item.quantity %></span>
-            <span class="text-center w-1/5 text-white font-semibold text-sm"><%= number_to_currency(cart_item.quantity.to_i * cart_item.item.price) %></span>
+            <span class="text-center w-1/5 text-white font-semibold text-sm"><%= number_to_currency(cart_item.quantity.to_i * cart_item.item.price, unit: '€') %></span>
             <div class="text-center w-1/5">
               <%= button_to delete_item_cart_path(@cart, cart_item), method: :delete, class: "btn btn-danger text-white" do %>
                 <i class="fa-solid fa-trash text-red-800"></i> <!-- Utilisez la classe d'icône de poubelle de FontAwesome ici -->
@@ -54,7 +54,7 @@
       <h1 class="font-semibold text-white text-2xl border-b pb-8">Récapitulatif</h1>
       <div class="flex justify-between mt-10 mb-5">
         <span class="font-semibold text-white text-sm uppercase">Produits <%= @cart_items.size %></span>
-        <span class="font-semibold text-white text-sm"><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }) %></span>
+        <span class="font-semibold text-white text-sm"><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
       </div>
       <div class="py-10">
         <label for="promo" class="font-semibold text-white inline-block mb-3 text-sm uppercase">Code Promo</label>
@@ -64,7 +64,7 @@
       <div class="border-t mt-8">
         <div class="flex font-semibold text-white justify-between py-6 text-sm uppercase">
           <span>Total Commande</span>
-          <span><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }) %></span>
+          <span><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
         </div>
         <%= button_to "Valider mon panier", checkout_create_path(total: @cart_total), class: "bg-purple-400 font-semibold hover:bg-purple-300 py-3 text-sm text-black uppercase w-full btn btn-primary", data: {turbo: false} %>
     </div>
