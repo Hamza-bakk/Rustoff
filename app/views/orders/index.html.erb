@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="text-2xl font-semibold mb-4">Mes Commandes</h1>
 
-<h1>Orders</h1>
+<% if @orders.any? %>
+  <div class="order-list space-y-4">
+    <% @orders.each do |order| %>
+      <div class="order border p-4 rounded">
+        <h2 class="text-xl font-semibold mb-2">Commande ## <%= order.id %></h2>
+        <p class="mb-2">Date de commande : <%= order.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+       
+        <p class="mb-2">Total de la commande : <%= (@cart_total) %></p>
+        <h3 class="text-lg font-semibold mb-2">Articles commandés :</h3>
+        <ul class="order-items list-disc pl-4">
+          <% order.order_items.each do |order_item| %>
+            <li>
+              <%= order_item.quantity %> x <%= order_item.item.title %> :
+              <%= number_to_currency(order_item.unit_price) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-lg">Vous n'avez aucune commande passée.</p>
+<% end %>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New order", new_order_path %>
