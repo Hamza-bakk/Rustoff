@@ -1,0 +1,42 @@
+<%= render 'layouts/dashboard' %>
+<div class="max-w-md mx-auto mt-10">
+  <!-- Formulaire dans une carte -->
+  <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+    <%= form_for @item, url: dashboard_create_path, method: :post do |f| %>
+      <!-- Titre -->
+      <div class="mb-4">
+        <%= f.label :title, class: "text-sm font-bold mb-2 text-white" %>
+        <%= f.text_field :title, class: "appearance-none bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-4">
+        <%= f.label :description, class: "text-sm font-bold mb-2 text-white" %>
+        <%= f.text_area :description, class: "appearance-none bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <!-- Prix -->
+      <div class="mb-4">
+        <%= f.label :price, class: "text-sm font-bold mb-2 text-white" %>
+        <%= f.number_field :price, step: "any", class: "appearance-none bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <!-- Image URL -->
+      <div class="mb-4">
+        <%= f.label :image_url, class: "text-sm font-bold mb-2 text-white" %>
+        <%= f.text_field :image_url, class: "appearance-none bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <!-- Alt -->
+      <div class="mb-6">
+        <%= f.label :alt, class: "text-sm font-bold mb-2 text-white" %>
+        <%= f.text_field :alt, class: "appearance-none bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="mb-6 text-center">
+        <%= f.submit "Ajouter le produit", class: "bg-purple-400 hover:bg-purple-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>
