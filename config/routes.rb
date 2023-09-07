@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :carts
-  resources :devis
+
   
   resources :carts do
     delete 'cart_items/:cart_item_id', to: 'carts#destroy_item', on: :member, as: :delete_item
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :items
   devise_for :users
+  resources :quotes # Exemple de ressource pour Quotes
+  get '/devis', to: 'quotes#new', as: 'devis'
 
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
   get '/dashboard/users', to: 'dashboard#users'
@@ -36,8 +38,16 @@ Rails.application.routes.draw do
   end
   
   root 'static_pages#home'
+  
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
+
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+end
+
   get '/pokemon', to: 'portfolio#pokemon', as: :pokemon
   get '/emote_twitch', to: 'portfolio#emote_twitch', as: :emote_twitch
   get '/logo', to: 'portfolio#logo', as: :logo
@@ -45,4 +55,5 @@ Rails.application.routes.draw do
   get '/tattoo', to: 'portfolio#tattoo', as: :tattoo
   get '/autre', to: 'portfolio#autre', as: :autre
   get '/casque', to: 'portfolio#casque', as: :casque
+ 
 end
