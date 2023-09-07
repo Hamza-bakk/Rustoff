@@ -13,7 +13,14 @@ class CartsController < ApplicationController
     @cart_items = @cart.cart_items
     @cart_total = @cart.total_price
   end
-  
+
+  def get_cart_total
+    # Ma logique pour obtenir le total du panier, par exemple :
+    @cart = current_user.cart
+    @cart_total = @cart.total_price
+  end
+
+
   # GET /carts/new
   def new
     @cart = Cart.new
