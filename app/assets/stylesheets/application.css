@@ -22,3 +22,6 @@ body {
   line-height: 1.5;
 }
 
+#default-sidebar {
+  z-index: 100; /* ou une valeur plus élevée si nécessaire */
+}

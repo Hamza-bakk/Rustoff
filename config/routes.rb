@@ -21,6 +21,14 @@ Rails.application.routes.draw do
   resources :quotes # Exemple de ressource pour Quotes
   get '/devis', to: 'quotes#new', as: 'devis'
 
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+  get '/dashboard/users', to: 'dashboard#users'
+  get '/dashboard/quotes', to: 'dashboard#quotes'
+  get '/dashboard/store', to: 'dashboard#store'
+  post '/dashboard/create', to: 'dashboard#create', as: 'dashboard_create'
+
+  get '/dashboard/orders', to: 'dashboard#orders'
+
   get 'shop/index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
