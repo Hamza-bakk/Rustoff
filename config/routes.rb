@@ -33,6 +33,13 @@ Rails.application.routes.draw do
   
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
+
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+end
+
   get '/pokemon', to: 'portfolio#pokemon', as: :pokemon
   get '/emote_twitch', to: 'portfolio#emote_twitch', as: :emote_twitch
   get '/logo', to: 'portfolio#logo', as: :logo
