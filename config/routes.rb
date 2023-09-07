@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :carts
+  resources :devis
   
   resources :carts do
     delete 'cart_items/:cart_item_id', to: 'carts#destroy_item', on: :member, as: :delete_item
