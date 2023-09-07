@@ -40,7 +40,6 @@ Rails.application.routes.draw do
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
 end
 
-end
   get '/pokemon', to: 'portfolio#pokemon', as: :pokemon
   get '/emote_twitch', to: 'portfolio#emote_twitch', as: :emote_twitch
   get '/logo', to: 'portfolio#logo', as: :logo

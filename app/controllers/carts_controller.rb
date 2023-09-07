@@ -11,6 +11,7 @@ class CartsController < ApplicationController
     @user = current_user
     @cart = Cart.find_or_create_by(user: current_user) # Assurez-vous que le panier existe ou créez-le si nécessaire
     @cart_items = @cart.cart_items
+    @cart_total = @cart.total_price
   end
   
   # GET /carts/new
