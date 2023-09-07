@@ -29,8 +29,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
-  resources :quotes, only: [:new, :create, :show]  # Exemple de ressource pour Quotes
-  resources :admins  # Exemple de ressource pour Admins
-  get 'devis', to: 'quotes#new', as: 'devis'
+  get '/pokemon', to: 'portfolio#pokemon', as: :pokemon
+  get '/emote_twitch', to: 'portfolio#emote_twitch', as: :emote_twitch
+  get '/logo', to: 'portfolio#logo', as: :logo
+  get '/troisD', to: 'portfolio#troisD', as: :troisD
+  get '/tattoo', to: 'portfolio#tattoo', as: :tattoo
+  get '/autre', to: 'portfolio#autre', as: :autre
+  get '/casque', to: 'portfolio#casque', as: :casque
 end
-
