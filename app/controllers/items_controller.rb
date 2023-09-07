@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
 
+  def destroy
+    @item.destroy
+    redirect_to dashboard_products_path, notice: "Item was successfully destroyed."
+  end
+
   # GET /items or /items.json
   def index
     @items = Item.all
@@ -48,15 +53,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1 or /items/1.json
-  def destroy
-    @item.destroy
-
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

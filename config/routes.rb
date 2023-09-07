@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/dashboard/quotes', to: 'dashboard#quotes'
   get '/dashboard/store', to: 'dashboard#store'
   post '/dashboard/create', to: 'dashboard#create', as: 'dashboard_create'
+  get 'dashboard/products', to: 'dashboard#products', as: 'dashboard_products'
+
 
   get '/dashboard/orders', to: 'dashboard#orders'
 
