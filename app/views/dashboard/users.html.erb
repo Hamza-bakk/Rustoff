@@ -1,21 +1,16 @@
-<div class="max-w-screen-xl p-6">
-  <div class="flex">
-    <!-- La barre latérale va ici -->
-    <div class="w-1/4">
-      <%= render 'layouts/dashboard' %>
-    </div>
-
-    <!-- Liste des utilisateurs dans un tableau à trois colonnes -->
-    <div class="w-3/4">
-      <div class="grid grid-cols-4 gap-5">
-        <% @users.each do |user| %>
-          <div class="bg-gray-800 shadow-md rounded-lg overflow-hidden">
-            <div class="px-4 py-2">
-              <p class="text-white"><%= user.email %></p>
-            </div>
-          </div>
-        <% end %>
+<div class="w-3/4 mx-auto mt-10">
+  <div class="grid grid-cols-4 gap-5">
+    <% @users.each do |user| %>
+      <div class="bg-gray-800 shadow-md rounded-lg overflow-hidden">
+        <div class="px-4 py-2">
+          <p class="text-white"><%= user.email %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
+  </div>
+
+  <!-- Bouton Retour au Dashboard -->
+  <div class="text-center mt-4">
+    <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
   </div>
 </div>
