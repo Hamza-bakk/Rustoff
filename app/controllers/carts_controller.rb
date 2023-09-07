@@ -32,11 +32,17 @@ class CartsController < ApplicationController
       # Récupérez l'élément à ajouter au panier
       @item = Item.find(params[:item_id]) # Assurez-vous que le paramètre :item_id est correctement passé
       
-      # Créez un nouvel élément dans le panier
-      @cart_item = @cart.cart_items.create(item: @item, quantity: params[:quantity])
+      # Utilisez directement params[:quantity] pour obtenir la quantité
+      quantity = params[:quantity].to_i
       
-    else
+      # Créez un nouvel élément dans le panier avec la quantité spécifiée
+      @cart_item = @cart.cart_items.create(item: @item, quantity: quantity)
+      
+      # Redirigez l'utilisateur vers la page du panier
       redirect_to cart_path(@cart), notice: "L'élément a été ajouté au panier."
+    else
+      # Gérez le cas où l'utilisateur n'est pas connecté
+      redirect_to items_path, alert: "Vous devez être connecté pour ajouter des articles au panier."
     end
   end
   
@@ -45,7 +51,12 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to cart_url(@cart), notice: "Cet élément est bien supprimé." }
+        format.html do
+          @cart.cart_items.each do |cart_item|
+            cart_item.update(total_price: cart_item.quantity * cart_item.item.price)
+          end
+          redirect_to cart_url(@cart), notice: "Le panier a été mis à jour avec succès."
+        end
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }

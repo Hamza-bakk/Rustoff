@@ -1,23 +1,24 @@
-<section class="dark:bg-gray-800 dark:text-gray-100 bg-[url('<%= asset_path('hero.png') %>')] bg-cover bg-center h-[800px] flex items-center">
+<section class="bg-gray-800 text-gray-100 bg-[url('<%= asset_path('hero.png') %>')] bg-cover bg-center h-[800px] flex items-center">
   <div class="container mx-auto px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
-    <h1 class="text-4xl dark:text-black font-bold leadi sm:text-5xl">
+    <h1 class="text-4xl text-black font-bold leadi sm:text-5xl">
       RustOff
-      <span class="dark:text-violet-400 block">
+      <span class="text-violet-400 block">
         Graphisme 
         <span class="text-black"> & </span> 
-        <span class="dark:text-violet-400">3D</span>
+        <span class="text-violet-400">3D</span>
       </span>
     </h1>
-    <p class="px-8 dark:text-black font-extrabold mt-8 mb-12 text-lg">
+    <p class="px-8 text-black font-extrabold mt-8 mb-12 text-lg">
       Bienvenue chez RustOff, Graphiste et design 3D. Vous retrouverez ma boutique et vous pouvez me contacter pour plus d'informations.
     </p>
     <div class="flex flex-wrap justify-center">
-      <a href="mailto:rustgraph@gmail.com" class="block px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-800 dark:border-gray-900 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-900 hover:text-white">
+      <a href="mailto:rustgraph@gmail.com" class="block px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 border-gray-900 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-900 hover:text-white">
         <i class="fa-solid fa-envelope mr-2"></i> Contact
       </a>
-      <a href="#" class="block px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-violet-500 hover:text-gray-100">
-        <i class="fa-solid fa-file-invoice-dollar mr-2"></i> Devis
-      </a>
+      <a href="<%= devis_path %>" class="block px-8 py-3 m-2 text-lg font-semibold rounded bg-violet-400 text-gray-900 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-violet-500 hover:text-gray-100">
+  <i class="fa-solid fa-file-invoice-dollar mr-2"></i> Devis
+</a>
+
     </div>
   </div>
 </section>
