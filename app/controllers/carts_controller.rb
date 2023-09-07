@@ -9,8 +9,8 @@ class CartsController < ApplicationController
   # GET /carts/1 or /carts/1.json
   def show
     @user = current_user
-    @cart = current_user.cart # Assurez-vous que current_user renvoie l'utilisateur connecté
-    @cart_items = @cart.cart_items if @cart.present?
+    @cart = Cart.find_or_create_by(user: current_user) # Assurez-vous que le panier existe ou créez-le si nécessaire
+    @cart_items = @cart.cart_items
   end
   
   # GET /carts/new

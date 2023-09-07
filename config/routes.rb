@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :carts
-  resources :devis
+
   
   resources :carts do
     delete 'cart_items/:cart_item_id', to: 'carts#destroy_item', on: :member, as: :delete_item
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :items
   devise_for :users
+  resources :quotes # Exemple de ressource pour Quotes
+  get '/devis', to: 'quotes#new', as: 'devis'
 
   get 'shop/index'
 
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   end
   
   root 'static_pages#home'
+  
   get 'welcome_email', to: 'welcome_mailer#welcome_email'
   get '/portfolio', to: 'portfolio#show', as: 'portfolio'
 
@@ -45,4 +48,5 @@ end
   get '/tattoo', to: 'portfolio#tattoo', as: :tattoo
   get '/autre', to: 'portfolio#autre', as: :autre
   get '/casque', to: 'portfolio#casque', as: :casque
+ 
 end
