@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_074310) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "total_price", precision: 10, scale: 2, default: "0.0"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -93,13 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_074310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "promo_codes", force: :cascade do |t|
-    t.string "code"
-    t.decimal "discount_percentage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "quotes", force: :cascade do |t|
