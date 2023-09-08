@@ -1,0 +1,41 @@
+<!-- app/views/admin/orders/index.html.erb -->
+
+<h1 class="text-2xl font-semibold text-center mb-4 mt-10">Liste des Commandes :</h1>
+
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-gray-800 border text-white rounded-lg">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">ID de la Commande</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Utilisateur</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prix Total</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Date de la Commande</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Articles commandés</th> <!-- Nouvelle colonne pour les articles -->
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td class="px-4 py-2 border-b text-center"><%= order.id %></td>
+          <td class="px-4 py-2 border-b text-center"><%= order.user.email %></td>
+          <td class="px-4 py-2 border-b text-center"><%= number_to_currency(order.total_price, unit: '€') %></td>
+          <td class="px-4 py-2 border-b text-center"><%= order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td class="px-4 py-2 border-b text-center">
+            <ul class="order-items list-disc pl-4">
+              <% order.order_items.each do |order_item| %>
+                <li>
+                  <%= order_item.quantity %> x <%= order_item.item.title %> :
+                  <%= number_to_currency(order_item.unit_price, unit: '€') %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+  <div class="text-center mt-4">
+    <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
+  </div>

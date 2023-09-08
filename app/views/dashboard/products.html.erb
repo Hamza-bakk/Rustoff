@@ -7,23 +7,22 @@
         <div class="relative bg-gray-400 rounded-lg overflow-hidden shadow-md">
           <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-32 object-cover object-center">
           <div class="px-4 py-3">
-            <h3 class="text-black font-bold text-sm mb-2"><%= item.title %></h3>
-            <p class="text-black text-xs"><%= item.description %></p>
-            <p class="text-green font-bold text-sm mt-2"><%= number_to_currency(item.price, unit: "€") %></p>
+            <h3 class="text-black font-bold text-sm mb-2 text-center"><%= item.title %></h3>
+            <p class="text-black text-xs text-center"><%= item.description %></p>
+            <p class="text-green-700 font-bold text-sm mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
           </div>
           <%= form_for(item, url: item_path(item), method: :delete) do |f| %>
             <%= f.button type: 'submit', class: "absolute bottom-0 right-0 mb-2 mr-2 text-red-700 hover:text-red-500" do %>
-              <i class="fas fa-trash"></i> <!-- Utilisez la classe d'icône Font Awesome pour la poubelle -->
+              <i class="fas fa-trash"></i>
             <% end %>
           <% end %>
         </div>
       <% end %>
     </div>
-    <!-- Ajoute une marge entre chaque ligne d'articles -->
+
     <div class="my-6"></div>
   <% end %>
 
-  <!-- Bouton pour revenir au dashboard -->
   <div class="text-center">
     <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
       Retour au Dashboard

@@ -14,6 +14,11 @@ class DashboardController < ApplicationController
     @item = Item.new
   end
 
+  def orders
+    @orders = Order.all
+  end
+
+
   def products
     @items = Item.all
   end
