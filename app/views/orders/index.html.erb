@@ -1,26 +1,26 @@
-<h1 class="text-2xl font-semibold mb-4">Mes Commandes</h1>
+<div class="container mx-auto my-10 px-4">
+  <h1 class="text-2xl font-bold text-center mb-4">Mes Commandes :</h1>
 
-<% if @orders.any? %>
-  <div class="order-list space-y-4">
-    <% @orders.each do |order| %>
-      <div class="order border p-4 rounded">
-        <h2 class="text-xl font-semibold mb-2">Commande ## <%= order.id %></h2>
-        <p class="mb-2">Date de commande : <%= order.created_at.strftime("%d/%m/%Y %H:%M") %></p>
-        <p class="mb-2">Total de la commande : <%= number_to_currency(order.total_price, unit: '€') %></p>
-        <h3 class="text-lg font-semibold mb-2">Articles commandés :</h3>
-        <ul class="order-items list-disc pl-4">
-          <% order.order_items.each do |order_item| %>
-            <li>
-              <%= order_item.quantity %> x <%= order_item.item.title %> :
-              <%= number_to_currency(order_item.unit_price, unit: '€') %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <p class="text-lg">Vous n'avez aucune commande passée.</p>
-<% end %>
-
-
+  <% if @orders.any? %>
+    <div class="order-list space-y-4">
+      <% @orders.each do |order| %>
+        <div class="order bg-gray-800 border rounded p-4 shadow-md text-center">
+          <h2 class="text-xl text-purple-400 font-semibold mb-2">Commande ## <%= order.id %></h2>
+          <p class="mb-2 text-white">Date de commande : <%= order.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+          <p class="mb-2 text-white">Total de la commande : <%= number_to_currency(order.total_price, unit: '€') %></p>
+          <h3 class="text-lg font-semibold text-white mb-2">Articles commandés :</h3>
+          <ul class="order-items text-white list-disc pl-4">
+            <% order.order_items.each do |order_item| %>
+              <li>
+                <%= order_item.quantity %> x <%= order_item.item.title %> :
+                <%= number_to_currency(order_item.unit_price, unit: '€') %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-lg">Vous n'avez aucune commande passée.</p>
+  <% end %>
+</div>
