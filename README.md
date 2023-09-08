@@ -82,11 +82,20 @@ $ git clone https://github.com/Hamza-bakk/rustoff
 # Access
 $ cd rustoff
 
-# Install dependencies
-$ yarn
+# install GEM
+$ Bundle install
 
-# Run the project
-$ yarn start
+# create database
+$ rails db:create
+
+# create migrate
+$ rails db:migrate
+
+# create seeds
+$ rails db:seed
+
+# Launch server
+$ rails s 
 
 # The server will initialize in the <http://localhost:3000>
 ```
