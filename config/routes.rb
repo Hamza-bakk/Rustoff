@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     delete 'cart_items/:cart_item_id', to: 'carts#destroy_item', on: :member, as: :delete_item
   end
 
+
   resources :items
   devise_for :users
   resources :quotes, only: [:new, :create, :show, :destroy]
@@ -34,9 +35,9 @@ Rails.application.routes.draw do
   get '/dashboard/store', to: 'dashboard#store'
   post '/dashboard/create', to: 'dashboard#create', as: 'dashboard_create'
   get 'dashboard/products', to: 'dashboard#products', as: 'dashboard_products'
-
-
   get '/dashboard/orders', to: 'dashboard#orders'
+
+  get 'faq', to: 'faq#index', as: 'faq'
 
   get 'shop/index'
   resources :orders, only: [:index]

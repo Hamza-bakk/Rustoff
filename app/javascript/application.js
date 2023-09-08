@@ -3,17 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "controllers/picture"
 import "controllers/disable-right-click"
-
-document.addEventListener('DOMContentLoaded', function () {
-  const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuButton.addEventListener('click', function () {
-    const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-    mobileMenuButton.setAttribute('aria-expanded', !expanded);
-    mobileMenu.classList.toggle('hidden');
-  });
-});
+import "controllers/hambmenu"
+import "controllers/faq"
 
 
 

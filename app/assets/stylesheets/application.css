@@ -28,3 +28,7 @@ body {
   padding: 4px 8px; /* Espace autour du texte dans le badge */
   font-size: 12px; /* Taille de la police du texte */
 }
+
+.answer {
+  display: none; /* Par défaut, masquez les réponses */
+}
