@@ -1,23 +1,50 @@
-<!-- app/views/quotes/new.html.erb -->
+<div class="py-6">
+  <div class="flex bg-gray-800 rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+    <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url(<%= asset_path('dash.png') %>)"></div>
+    <div class="w-full p-8 lg:w-1/2">
+      <h2 class="text-2xl font-semibold text-white text-center">Devis</h2>
+      
+      <%= form_with(model: @quote, url: quotes_path) do |form| %>
+        <% if @quote.errors.any? %>
+          <div class="bg-red-100 text-red-500 border border-red-400 px-4 py-3 rounded mb-4">
+            <h2 class="text-red-800">Il y a eu des erreurs :</h2>
+            <ul>
+              <% @quote.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<h1>Créer un devis</h1>
+        <div class="mt-4">
+          <%= form.label :first_name, 'Prénom', class: "block text-white text-sm font-bold mb-2" %>
+          <%= form.text_field :first_name, class: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' %>
+        </div>
 
-<%= form_with(model: @quote, local: true) do |form| %>
-  <!-- Ajoutez ici les champs du formulaire pour le devis -->
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+        <div class="mt-4">
+          <%= form.label :last_name, 'Nom', class: "block text-white text-sm font-bold mb-2" %>
+          <%= form.text_field :last_name, class: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' %>
+        </div>
+
+        <div class="mt-4">
+          <%= form.label :email, 'Adresse Email', class: "block text-white text-sm font-bold mb-2" %>
+          <%= form.email_field :email, class: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' %>
+        </div>
+
+        <div class="mt-4">
+          <%= form.label :description, 'Description de votre projet', class: "block text-white text-sm font-bold mb-2" %>
+          <%= form.text_area :description, class: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' %>
+        </div>
+
+        <div class="mt-4">
+          <%= form.label :category, 'Type de projet', class: "block text-white text-sm font-bold mb-2" %>
+          <%= form.select :category, ['3D', 'Animation', 'Logo', 'Twitch', 'Merch', 'Tattoo', 'Design divers', 'Avatars', 'Autres'], class: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' %>
+        </div>
+
+        <div class="mt-8">
+          <%= form.submit 'Soumettre', class: 'bg-purple-400 text-black font-bold py-2 px-4 w-full rounded hover:bg-purple-300' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :nom_de_la_personne %>
-    <%= form.text_field :nom_de_la_personne %>
-  </div>
-
-  <div class="field">
-    <%= form.label :adresse_email %>
-    <%= form.email_field :adresse_email %>
-  </div>
-
-  <%= form.submit "Créer le devis" %>
-<% end %>
+</div>

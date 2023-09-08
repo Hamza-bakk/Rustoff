@@ -17,6 +17,12 @@ class DashboardController < ApplicationController
   def products
     @items = Item.all
   end
+
+  def quotes
+    @quotes = Quote.all
+    @unprocessed_quotes = Quote.where(processed: false)
+    @processed_quotes = Quote.where(processed: true)
+  end
   
 
   def users
