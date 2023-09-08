@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   after_create :welcome_send
+  after_create :create_cart
   has_one_attached :avatar
+
+  def create_cart
+    Cart.create(user: self)
+  end
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

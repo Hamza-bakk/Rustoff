@@ -1,7 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-
+import "controllers/picture"
 
 document.addEventListener('DOMContentLoaded', function () {
   const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
@@ -14,9 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('contextmenu', function(e) {
-  if (e.target.tagName === 'IMG') {
-  }
-});
+
 
 

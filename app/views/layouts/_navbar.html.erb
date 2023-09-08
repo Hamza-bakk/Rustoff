@@ -24,10 +24,11 @@
           <%= link_to cart_path(current_user), class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
         <i class="fa-solid fa-cart-shopping"></i>
       <% if current_user.cart.cart_items.any? %>
-        <span class="cart-quantity"><%= current_user.cart.cart_items.sum(:quantity) %></span>
+         <span> <%= current_user.cart.cart_items.count %></span>
       <% end %>
     <% end %>
   <% end %>
+  
   
     
       
