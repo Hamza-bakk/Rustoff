@@ -18,22 +18,28 @@
           </div>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
+           
+         <div class="flex items-center space-x-4">
         <% if user_signed_in? %>
-          <%= link_to cart_path(current_user), class: "text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
-            <i class="fa-solid fa-cart-shopping"></i>
-          <% end %>
+          <%= link_to cart_path(current_user), class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
+        <i class="fa-solid fa-cart-shopping"></i>
+      <% if current_user.cart.cart_items.any? %>
+        <span class="cart-quantity"><%= current_user.cart.cart_items.sum(:quantity) %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+    
+      
+      <% if user_signed_in? %>
+        <%= link_to "Mon Profil", profile_path(current_user), class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+        <%= form_tag(destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium") do %>
+          <%= submit_tag "Se déconnecter", class: "hover:text-gray-200" %>
         <% end %>
-        <% if user_signed_in? %>
-          <%= link_to "Mon Profil", profile_path(current_user), class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-          <%= form_tag(destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium") do %>
-            <%= submit_tag "Se déconnecter", class: "hover:text-gray-200" %>
-          <% end %>
-        <% else %>
-          <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_session_path %>">Se connecter</a>
-          <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_registration_path %>">S'inscrire</a>
-        <% end %>
-      </div>
+      <% else %>
+        <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_session_path %>">Se connecter</a>
+        <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_registration_path %>">S'inscrire</a>
+      <% end %>
     </div>
   </div>
   <div class="sm:hidden" id="mobile-menu">
@@ -41,9 +47,9 @@
       <% if user_signed_in? && current_user.admin? %>
         <a href="/dashboard" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
       <% end %>
-      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Boutique</a>
-      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Portfolio</a>
-      <a href="#" class="text-gray-300 hover-bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">FAQ</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Boutique</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Portfolio</a>
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">FAQ</a>
     </div>
   </div>
 </nav>
