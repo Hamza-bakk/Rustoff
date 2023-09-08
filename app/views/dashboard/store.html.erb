@@ -1,45 +1,37 @@
 <div class="max-w-screen-xl p-6 mx-auto">
   <div class="flex justify-center">
-    <!-- Formulaire dans une carte -->
     <div class="w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mt-10 h-108">
       <%= form_for @item, url: dashboard_create_path, method: :post do |f| %>
-        <!-- Titre -->
         <div class="mb-2">
           <%= f.label :title, class: "text-sm font-bold text-white" %>
           <%= f.text_field :title, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <!-- Description -->
         <div class="mb-2">
           <%= f.label :description, class: "text-sm font-bold text-white" %>
           <%= f.text_area :description, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <!-- Prix -->
         <div class="mb-2">
           <%= f.label :price, class: "text-sm font-bold text-white" %>
           <%= f.number_field :price, step: "any", class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <!-- Image URL -->
         <div class="mb-2">
           <%= f.label :image_url, class: "text-sm font-bold text-white" %>
           <%= f.text_field :image_url, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <!-- Alt -->
         <div class="mb-2">
           <%= f.label :alt, class: "text-sm font-bold text-white" %>
           <%= f.text_field :alt, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <!-- Bouton de soumission -->
         <div class="text-center">
           <%= f.submit "Ajouter le produit", class: "bg-purple-400 hover:bg-purple-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
 
-      <!-- Lien de retour au dashboard -->
       <div class="text-center mt-4">
         <%= link_to "Retour au Dashboard", dashboard_path, class: "text-purple-400 hover:underline" %>
       </div>

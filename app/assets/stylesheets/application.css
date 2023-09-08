@@ -22,6 +22,9 @@ body {
   line-height: 1.5;
 }
 
-#default-sidebar {
-  z-index: 100; /* ou une valeur plus élevée si nécessaire */
+/* Panier pour afficher le nombre d'article */
+.badge {
+  color: white; /* Couleur du texte du badge */
+  padding: 4px 8px; /* Espace autour du texte dans le badge */
+  font-size: 12px; /* Taille de la police du texte */
 }

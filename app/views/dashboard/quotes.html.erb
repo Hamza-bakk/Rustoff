@@ -1,4 +1,5 @@
 <h1 class="text-2xl font-semibold text-center mb-4 mt-10">Liste des Devis</h1>
+
 <h2 class="text-xl font-semibold my-4">Devis Non traités :</h2>
 <div class="overflow-x-auto">
   <table class="min-w-full bg-gray-800 text-white border rounded-lg">
@@ -24,7 +25,7 @@
           <td class="px-4 py-2 border-b text-center">
             <%= form_with(url: mark_quote_path(quote), method: :post) do %>
               <%= hidden_field_tag :checked, true %>
-                <%= submit_tag 'Marquer comme traité', class: 'bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded' %>
+              <%= submit_tag 'Marquer comme traité', class: 'bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded' %>
             <% end %>
           </td>
           <td class="px-4 py-2 border-b text-center">
@@ -78,4 +79,8 @@
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="text-center mt-4">
+  <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
 </div>

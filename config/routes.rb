@@ -39,8 +39,7 @@ Rails.application.routes.draw do
   get '/dashboard/orders', to: 'dashboard#orders'
 
   get 'shop/index'
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :orders, only: [:index]
   resources :profiles, only: [:show, :edit, :update]
   resources :users, only: [:show] do
   resources :avatars, only: [:create]
