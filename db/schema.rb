@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_130452) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_08_074310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +56,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_130452) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "total_price", precision: 10, scale: 2, default: "0.0"
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -88,13 +95,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_130452) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "quotes", force: :cascade do |t|
-    t.text "description"
-    t.string "person_name"
-    t.string "email"
-    t.integer "admin_id"
+  create_table "promo_codes", force: :cascade do |t|
+    t.string "code"
+    t.decimal "discount_percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.text "description"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "category"
+    t.boolean "processed", default: false
   end
 
   create_table "users", force: :cascade do |t|

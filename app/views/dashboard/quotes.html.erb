@@ -1,0 +1,81 @@
+<h1 class="text-2xl font-semibold text-center mb-4 mt-10">Liste des Devis</h1>
+<h2 class="text-xl font-semibold my-4">Devis Non traités :</h2>
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-gray-800 text-white border rounded-lg">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prénom</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Nom</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Email</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Description</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Catégorie</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Devis traité</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @unprocessed_quotes.each do |quote| %>
+        <tr>
+          <td class="px-4 py-2 border-b text-center"><%= quote.first_name %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.last_name %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.email %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.description %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.category %></td>
+          <td class="px-4 py-2 border-b text-center">
+            <%= form_with(url: mark_quote_path(quote), method: :post) do %>
+              <%= hidden_field_tag :checked, true %>
+                <%= submit_tag 'Marquer comme traité', class: 'bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded' %>
+            <% end %>
+          </td>
+          <td class="px-4 py-2 border-b text-center">
+            <%= form_for(quote, url: quote_path(quote), method: :delete, html: { class: 'delete-form' }) do |f| %>
+              <%= f.button type: 'submit', class: 'text-red-700 hover:text-red-500' do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="text-xl font-semibold my-4">Devis traités :</h2>
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-gray-800 text-white border rounded-lg">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prénom</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Nom</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Email</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Description</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Catégorie</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Re Traité</th>
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @processed_quotes.each do |quote| %>
+        <tr>
+          <td class="px-4 py-2 border-b text-center"><%= quote.first_name %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.last_name %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.email %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.description %></td>
+          <td class="px-4 py-2 border-b text-center"><%= quote.category %></td>
+          <td class="px-4 py-2 border-b text-center">
+            <%= form_with(url: reprocess_quote_path(quote), method: :post) do %>
+              <%= submit_tag 'Retraiter Devis', class: 'bg-red-500 hover:bg-red-600 text-black font-bold py-2 px-4 rounded' %>
+            <% end %>
+          </td>
+          <td class="px-4 py-2 border-b text-center">
+            <%= form_for(quote, url: quote_path(quote), method: :delete, html: { class: 'delete-form' }) do |f| %>
+              <%= f.button type: 'submit', class: 'text-red-700 hover:text-red-500' do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

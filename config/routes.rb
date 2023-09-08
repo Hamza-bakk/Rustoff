@@ -18,7 +18,14 @@ Rails.application.routes.draw do
 
   resources :items
   devise_for :users
-  resources :quotes # Exemple de ressource pour Quotes
+  resources :quotes, only: [:new, :create, :show, :destroy]
+  post 'quotes/:id/mark', to: 'quotes#mark', as: :mark_quote
+  resources :quotes do
+    member do
+      post :reprocess
+    end
+  end
+
   get '/devis', to: 'quotes#new', as: 'devis'
 
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
