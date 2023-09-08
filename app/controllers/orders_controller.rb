@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   
+
   # GET /orders/new
   def new
     @order = Order.new
