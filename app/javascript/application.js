@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "controllers/picture"
+import "controllers/disable-right-click"
 
 document.addEventListener('DOMContentLoaded', function () {
   const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');

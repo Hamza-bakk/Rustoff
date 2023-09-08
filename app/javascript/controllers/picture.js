@@ -11,9 +11,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   
-
-document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IMG') {
-    }
-  });
-  console.log("je suis dans picture")
