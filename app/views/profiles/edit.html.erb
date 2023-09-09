@@ -22,7 +22,7 @@
     </div>
 
     <div class="w-full max-w-md px-4">
-      <div class="shadow-md rounded px-8 py-6 text-white bg-gray-800">
+      <div class="shadow-md rounded px-8 py-6 text-white text-center bg-gray-800">
         <div class="relative">
           <div class="flex justify-center -mt-8">
             <% if @user.avatar.attached? %>
@@ -33,15 +33,11 @@
           </div>
 
           <%= form_tag user_avatars_path(@user), multipart: true do %>
-            <h3 class="mb-4 text-lg font-semibold">Changer d'avatar :</h3>
+            <h3 class="mb-4 mt-6 text-lg font-semibold">Changer d'avatar :</h3>
             <%= file_field_tag :avatar %>
-            <%= submit_tag "Mettre à jour l'avatar", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+            <%= submit_tag "Mettre à jour l'avatar", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8" %>
           <% end %>
-
-          <%= link_to "Actualiser la page", nil, class: "mt-4 text-white hover:text-purple-300 font-semibold", onclick: "location.reload();" %>
         </div>
-
-        <%= link_to "Retour", profile_path(@user), class: "mt-5 text-white hover:text-purple-300 font-semibold" %>
       </div>
     </div>
   </div>
