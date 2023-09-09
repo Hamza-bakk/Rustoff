@@ -14,14 +14,14 @@ class CartsController < ApplicationController
     @cart_items = @cart.cart_items
     @cart_total = @cart.total_price
   end
-
+  
   def get_cart_total
     # Ma logique pour obtenir le total du panier, par exemple :
     @cart = current_user.cart
     @cart_total = @cart.total_price
   end
-
-
+  
+  
   # GET /carts/new
   def new
     @cart = Cart.new
@@ -91,11 +91,24 @@ class CartsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_cart
-    @cart = User.find(params[:id])
+    @cart = find_cart(params[:user_id], params[:cart_id])
   end
   
   # Only allow a list of trusted parameters through.
   def cart_params
     params.require(:cart).permit(:user_id)
+  end
+  
+  
+  def find_cart(user_id, cart_id)
+    if user_id
+      user = User.find(user_id)
+      @cart = user.cart
+    elsif cart_id
+      @cart = Cart.find(cart_id)
+    else
+      # Gérer le cas où ni l'ID d'utilisateur ni l'ID de panier n'est présent
+      # Par exemple, rediriger vers une page d'erreur ou effectuer une action appropriée.
+    end
   end
 end
