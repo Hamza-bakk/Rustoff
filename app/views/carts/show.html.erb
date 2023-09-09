@@ -30,7 +30,7 @@
             <span class="text-center w-1/5 text-white font-semibold text-sm"><%= number_to_currency(cart_item.quantity.to_i * cart_item.item.price, unit: '€') %></span>
             <div class="text-center w-1/5">
               <%= button_to delete_item_cart_path(@cart, cart_item), method: :delete, class: "btn btn-danger text-white" do %>
-                <i class="fa-solid fa-trash text-red-800"></i> <!-- Utilisez la classe d'icône de poubelle de FontAwesome ici -->
+                <i class="fa-solid fa-trash text-red-800"></i>
               <% end %>
             </div>
           </div>
@@ -66,7 +66,7 @@
           <span>Total Commande</span>
           <span><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
         </div>
-        <%= button_to "Valider mon panier", checkout_create_path(total: @cart_total), class: "bg-purple-400 font-semibold hover:bg-purple-300 py-3 text-sm text-black uppercase w-full btn btn-primary", data: {turbo: false} %>
+        <%= button_to "Payer", checkout_create_path(total: @cart_total), class: "bg-purple-400 font-semibold hover:bg-purple-300 py-3 text-sm text-black uppercase w-full btn btn-primary", data: {turbo: false} %>
     </div>
     </div>
   </div>
