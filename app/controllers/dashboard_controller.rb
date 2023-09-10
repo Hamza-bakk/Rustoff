@@ -47,6 +47,6 @@ class DashboardController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image_url, :alt)
+    params.require(:item).permit(:title, :description, :price, :image_url, :alt, :category)
   end
 end

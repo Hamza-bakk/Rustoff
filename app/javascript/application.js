@@ -5,6 +5,7 @@ import "controllers/picture"
 import "controllers/disable-right-click"
 import "controllers/hambmenu"
 import "controllers/faq"
+import "controllers/shop"
 
 
 
