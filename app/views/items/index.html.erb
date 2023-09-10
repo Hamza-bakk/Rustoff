@@ -1,19 +1,89 @@
-<div class="flex flex-wrap -mx-6 mt-16 mb-8 ml-10 mr-10">
-  <% @items.each_slice(1) do |item_group| %>
-    <div class="w-full md:w-1/3 px-4 mb-4">
-      <% item_group.each do |item| %>
-        <div class="rounded-lg shadow-md text-center bg-gray-800 overflow-hidden mb-4">
-          <%= image_tag item.image_url, alt: item.title, class: "w-full h-80 object-cover" %>
-          <div class="p-4">
-            <h2 class="text-lg text-white font-semibold mb-2"><%= item.title %></h2>
-            <p class="text-white mb-2"><%= item.description %></p>
-            <p class="text-green-600 font-semibold">€<%= item.price %></p>
-            <div class="mt-4">
-              <%= link_to "Voir", item_path(item), class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded-full" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<!-- INFO BAR -->
+<div class='info-wrapper mb-10'>
+  <div class='shipping-container'>
+    <i class="fa fa-truck fa-2x text-gray-800 "></i>
+    <div class='info-desc'>Livraison Rapide</div>
+  </div>
+  <div class='inventory-container'>
+    <i class="fa fa-shopping-basket fa-2x "></i>
+    <div class='info-desc'>Large Choix</div>
+  </div>
 </div>
+
+<div class='main-wrapper'>
+  <div class="menu">
+    <div class='menu-item All'>
+      <div class='menu-item-title'>All</div>
+      <div class='menu-item-number'>13</div>
+    </div>
+    <div class='menu-item Animation'>
+      <div class='menu-item-title'>Animation</div>
+      <div class='menu-item-number'>88</div>
+    </div>
+    <div class='menu-item Logo'>
+      <div class='menu-item-title'>Logo</div>
+      <div class='menu-item-number'>54</div>
+    </div>
+    <div class='menu-item 3D'>
+      <div class='menu-item-title'>3D</div>
+      <div class='menu-item-number'>99</div>
+    </div>
+    <div class='menu-item Merch'>
+      <div class='menu-item-title'>Merch</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+    <div class='menu-item Tattoo'>
+      <div class='menu-item-title'>Tattoo</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+    <div class='menu-item Illustrations'>
+      <div class='menu-item-title'>Illustrations</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+    <div class='menu-item Avatars'>
+      <div class='menu-item-title'>Avatars</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+    <div class='menu-item Autres'>
+      <div class='menu-item-title'>Autres</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+    <div class='menu-item Twitch'>
+      <div class='menu-item-title'>Twitch</div>
+      <div class='menu-item-number'>0</div>
+    </div>
+  </div>
+
+  <div class='products-container'>
+
+<% @items.each do |item| %>
+  <div class='shop-card bg-gray-800' data-cat='<%= item.category %>'>
+    <div class="title">
+      <%= item.title %>
+    </div>
+    <div class="desc">
+      <%= item.description %>
+    </div>
+    <div class="product">
+      <%= image_tag item.image_url, alt: item.title %>
+    </div>
+    <div class='cta'>
+      <div class="price">€<%= item.price %></div>
+      <%= link_to "Voir", item_path(item), class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-6 rounded-full text-xs" %>
+    </div>
+  </div>
+<% end %>
+
+<div class='modal'>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+  <div>asdasdas asd as </div>
+</div>
+
