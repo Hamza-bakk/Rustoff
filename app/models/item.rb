@@ -5,8 +5,11 @@ class Item < ApplicationRecord
     validates :image_url, presence: true
     validates :alt, presence: true
     validates :category, presence: true
+
+    
     has_many :cart_items, dependent: :destroy
     has_many :order_items
+    has_many :order_items, dependent: :destroy
 
     CATEGORY_OPTIONS = ['3D', 'Animation', 'Logo', 'Twitch', 'Merch', 'Tattoo', 'Illustrations', 'Avatars', 'Autres']
 
