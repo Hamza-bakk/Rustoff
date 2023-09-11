@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :items
   devise_for :users
   resources :users
+  delete '/users/:id', to: 'users#destroy', as: 'delete_user'
 
   resources :quotes, only: [:index, :new, :create, :show, :destroy]
   post 'quotes/:id/mark', to: 'quotes#mark', as: :mark_quote
