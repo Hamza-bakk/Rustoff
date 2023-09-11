@@ -62,12 +62,13 @@ end
 # DELETE /users/1 or /users/1.json
 def destroy
   @user.destroy
-  
+
   respond_to do |format|
-    format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+    format.html { redirect_to root_path, notice: "User was successfully destroyed." }
     format.json { head :no_content }
   end
 end
+
 
 def update_avatar
   @user = User.find(params[:id])
