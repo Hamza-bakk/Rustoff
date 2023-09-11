@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @item = Item.find(params[:id])
+    @categories = Item.distinct.pluck(:category)
   end
 
   # POST /items or /items.json
@@ -42,14 +44,11 @@ class ItemsController < ApplicationController
 
   # PATCH/PUT /items/1 or /items/1.json
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to item_url(@item), notice: "Item was successfully updated." }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to dashboard_products_path, notice: "Article mis à jour avec succès."
+    else
+      render :edit
     end
   end
 
@@ -62,6 +61,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :description, :price, :image, :alt)
+      params.require(:item).permit(:title, :description, :price, :image, :alt, :category)
     end
 end
