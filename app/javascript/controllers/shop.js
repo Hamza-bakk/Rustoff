@@ -72,3 +72,51 @@ $(document).ready(function() {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Sélectionnez tous les éléments de catégorie du menu
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  // Sélectionnez tous les éléments de carte de magasin
+  const shopCards = document.querySelectorAll('.shop-card');
+
+  // Fonction pour mettre à jour les numéros de catégorie
+  function updateCategoryNumbers() {
+    menuItems.forEach((menuItem) => {
+      const categoryId = menuItem.id; // Obtenez l'ID de la catégorie
+      const categoryCount = Array.from(shopCards).filter((card) =>
+        card.getAttribute('data-cat') === categoryId
+      ).length; // Comptez les cartes dans la catégorie
+
+      // Mettez à jour le numéro de catégorie
+      const numberElement = menuItem.querySelector('.menu-item-number');
+      if (numberElement) {
+        numberElement.textContent = categoryCount;
+      }
+    });
+  }
+
+  // Appelez la fonction pour la première mise à jour
+  updateCategoryNumbers();
+
+  // Vous pouvez également déclencher la mise à jour à chaque fois que vous ajoutez ou supprimez des articles, par exemple.
+});
+
+function adjustCardHeight() {
+  const cards = document.querySelectorAll('.shop-card');
+  cards.forEach(card => {
+    const content = card.querySelector('.px-4');
+    if (content) {
+      card.style.height = content.offsetHeight + 'px';
+    }
+  });
+}
+
+// Exécutez la fonction d'ajustement de hauteur lorsque la page est chargée
+window.addEventListener('load', () => {
+  adjustCardHeight();
+});
+
+// Exécutez la fonction d'ajustement de hauteur lorsque la fenêtre est redimensionnée
+window.addEventListener('resize', () => {
+  adjustCardHeight();
+});

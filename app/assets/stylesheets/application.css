@@ -22,19 +22,19 @@ body {
   line-height: 1.5;
 }
 
-/* Panier pour afficher le nombre d'article */
+/*--------------------
+Panier avec nombre produits
+--------------------*/
 .badge {
-  color: white; /* Couleur du texte du badge */
-  padding: 4px 8px; /* Espace autour du texte dans le badge */
-  font-size: 12px; /* Taille de la police du texte */
+  color: white; 
+  padding: 4px 8px; 
+  font-size: 12px; 
 }
 
-.answer {
-  display: none; /* Par défaut, masquez les réponses */
-}
+
 
 /*--------------------
-INFO BAR
+FOOTER CSS
 --------------------*/
 
 .info-wrapper {
@@ -78,7 +78,7 @@ INFO BAR
 
 
 /*--------------------
-Products Menu
+Menu Boutique
 --------------------*/
 
 .menu {
@@ -201,119 +201,10 @@ Products Menu
   color: #c24448;
 }
 
-
-
-/*--------------------
-Products Container
---------------------*/
-
-.products-container {
-  width: 100%;
-  min-height: 300px;
-  margin-left: 20px;
-  display: flex;
-  flex-wrap: wrap;
+.min-h-card {
+  min-height: 20rem;
 }
 
-.shop-card {
-  margin: 10px;
-  width: 250px;
-  height: 300px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center;
-  font-family: 'Open Sans Condensed', sans-serif;
-}
-
-.shop-card .title {
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 25px;
-  color: #ffffff;
-  margin-bottom: 5px;
-}
-
-.shop-card .desc {
-  font-size: 15px;
-  opacity: .8;
-  margin-bottom: 3px;
-  color: #ffffff;
-}
-
-.product {
-  margin: 10px 0;
-}
-
-.product img {
-  width: 100%;
-}
-
-.cta {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.price {
-  color: #1d9017;
-  font-size: 22px;
-  font-weight: 900;
-  transition: color .3s ease-in-out;
-}
-
-.button {
-  font-size: 13px;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #28406b;
-  padding: 12px 18px;
-  cursor: pointer;
-  transition: all 300ms;
-  line-height: .95;
-  border: none;
-  background: none;
-  outline: none;
-  border: 1px solid #28406b;
-  border-radius: 20px;
-}
-
-.button:hover {
-  background: linear-gradient(135deg, #3d61a1, #28406b);
-  color: #fff;
-  border: none;
-}
-
-.modal {
+#mobile-menu {
   display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: auto;
-  margin-left: -200px;
-  margin-top: -150px;
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 5px;
-  z-index: 10;
-  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
-}
-
-.active {
-  display: block;
-}
-
-.shipping-container .fa {
-  color: #333; /* Couleur de l'icône */
-  font-size: 32px; /* Taille de l'icône */
-  margin-right: 10px; /* Marge à droite de l'icône */
-}
-
-/* Styles pour les icônes de large choix */
-.inventory-container .fa {
-  color: #333; /* Couleur de l'icône */
-  font-size: 32px; /* Taille de l'icône */
-  margin-right: 10px; /* Marge à droite de l'icône */
 }

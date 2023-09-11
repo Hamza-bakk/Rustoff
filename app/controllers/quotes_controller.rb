@@ -22,13 +22,13 @@ class QuotesController < ApplicationController
 
   def mark
     @quote.update(processed: params[:checked])
-    redirect_to quotes_path, notice: 'État du devis mis à jour avec succès.'
+    redirect_to dashboard_quotes_path, notice: 'État du devis mis à jour avec succès.'
   end
 
   def reprocess
     quote = Quote.find(params[:id])
     quote.update(processed: false)
-    redirect_to dashboard_quotes_path, notice: 'Devis retraité avec succès.'
+    redirect_to dashboard_quotes_path, notice: 'État du devis mis à jour avec succès.'
   end
 
   def destroy

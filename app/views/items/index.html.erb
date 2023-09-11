@@ -1,89 +1,76 @@
-<!-- INFO BAR -->
-<div class='info-wrapper mb-10'>
-  <div class='shipping-container'>
-    <i class="fa fa-truck fa-2x text-gray-800 "></i>
-    <div class='info-desc'>Livraison Rapide</div>
+<div class="container mx-auto text-center mt-10 sm:mt-20 mb-4 sm:mb-10">
+  <h1 class="text-2xl sm:text-4xl font-bold p-2 sm:p-4 border-4 border-gray-500 rounded inline-block">Boutique RustOff</h1>
+</div>
+
+<div class="info-wrapper mb-4 sm:mb-10 flex justify-center">
+  <div class="shipping-container flex items-center">
+    <i class="fas fa-truck text-gray-800 text-xl sm:text-2xl mr-2"></i>
+    <div class="info-desc text-sm sm:text-base">Livraison Rapide</div>
   </div>
-  <div class='inventory-container'>
-    <i class="fa fa-shopping-basket fa-2x "></i>
-    <div class='info-desc'>Large Choix</div>
+  <div class="inventory-container flex items-center ml-4 sm:ml-8">
+    <i class="fas fa-shopping-basket text-gray-800 text-xl sm:text-2xl mr-2"></i>
+    <div class="info-desc text-sm sm:text-base">Large Choix</div>
   </div>
 </div>
 
-<div class='main-wrapper'>
+<div class="main-wrapper text-white flex flex-col-reverse sm:flex-row sm:items-start">
   <div class="menu">
-    <div class='menu-item All'>
-      <div class='menu-item-title'>All</div>
-      <div class='menu-item-number'>13</div>
+    <div class="menu-item All">
+      <div class="menu-item-title">All</div>
     </div>
-    <div class='menu-item Animation'>
+    <div class='menu-item Animation' id='Animation'>
       <div class='menu-item-title'>Animation</div>
-      <div class='menu-item-number'>88</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Logo'>
+    <div class='menu-item Logo' id='Logo'>
       <div class='menu-item-title'>Logo</div>
-      <div class='menu-item-number'>54</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item 3D'>
+    <div class='menu-item 3D' id='3D'>
       <div class='menu-item-title'>3D</div>
-      <div class='menu-item-number'>99</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Merch'>
+    <div class='menu-item Merch' id='Merch'>
       <div class='menu-item-title'>Merch</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Tattoo'>
+    <div class='menu-item Tattoo' id='Tattoo'>
       <div class='menu-item-title'>Tattoo</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Illustrations'>
+    <div class='menu-item Illustrations' id='Illustrations'>
       <div class='menu-item-title'>Illustrations</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Avatars'>
+    <div class='menu-item Avatars' id='Avatars'>
       <div class='menu-item-title'>Avatars</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Autres'>
+    <div class='menu-item Autres' id='Autres'>
       <div class='menu-item-title'>Autres</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
-    <div class='menu-item Twitch'>
+    <div class='menu-item Twitch' id='Twitch'>
       <div class='menu-item-title'>Twitch</div>
-      <div class='menu-item-number'>0</div>
+      <div class='menu-item-number'></div>
     </div>
   </div>
 
-  <div class='products-container'>
 
-<% @items.each do |item| %>
-  <div class='shop-card bg-gray-800' data-cat='<%= item.category %>'>
-    <div class="title">
-      <%= item.title %>
-    </div>
-    <div class="desc">
-      <%= item.description %>
-    </div>
-    <div class="product">
-      <%= image_tag item.image_url, alt: item.title %>
-    </div>
-    <div class='cta'>
-      <div class="price">€<%= item.price %></div>
-      <%= link_to "Voir", item_path(item), class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-6 rounded-full text-xs" %>
-    </div>
+  <div class="products-container flex flex-wrap w-full ml-0 sm:ml-4" id="products-container">
+    <% @items.each do |item| %>
+      <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-md shop-card w-full sm:w-72 mx-2 my-4 min-h-card" data-cat="<%= item.category %>">
+        <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-48 object-cover object-center">
+        <div class="px-2 sm:px-4 py-2 sm:py-3">
+          <h3 class="text-white font-bold text-base sm:text-sm mb-1 sm:mb-2 text-center"><%= item.title %></h3>
+          <p class="text-white text-xs sm:text-sm text-center"><%= item.description %></p>
+          <p class="text-green-700 font-bold text-sm sm:text-base mt-1 sm:mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
+        </div>
+        <a href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-purple-400 hover:bg-purple-300 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full">
+          Voir
+        </a>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-<div class='modal'>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
-  <div>asdasdas asd as </div>
 </div>
 

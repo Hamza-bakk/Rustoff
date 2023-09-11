@@ -1,34 +1,33 @@
-<div class="max-w-screen-xl p-6 mx-auto">
+<div class="max-w-screen-xl p-4 sm:p-6 mx-auto">
   <div class="flex justify-center">
-    <div class="w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mt-10 h-108">
+    <div class="w-full sm:w-1/2 bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg mt-10">
       <%= form_for @item, url: dashboard_create_path, method: :post do |f| %>
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :title, class: "text-sm font-bold text-white" %>
           <%= f.text_field :title, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :description, class: "text-sm font-bold text-white" %>
           <%= f.text_area :description, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :category, 'Catégorie de l\'élément', class: "text-sm font-bold text-white" %>
           <%= f.select :category, ['3D', 'Animation', 'Logo', 'Twitch', 'Merch', 'Tattoo', 'Illustrations', 'Avatars', 'Autres'], { prompt: 'Sélectionnez une catégorie' }, class: 'bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline' %>
         </div>
 
-
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :price, class: "text-sm font-bold text-white" %>
           <%= f.number_field :price, step: "any", class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :image_url, class: "text-sm font-bold text-white" %>
           <%= f.text_field :image_url, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-3">
           <%= f.label :alt, class: "text-sm font-bold text-white" %>
           <%= f.text_field :alt, class: "bg-gray-700 border rounded w-full py-2 px-3 text-gray-100 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>

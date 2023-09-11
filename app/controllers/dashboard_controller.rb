@@ -27,6 +27,7 @@ class DashboardController < ApplicationController
     @quotes = Quote.all
     @unprocessed_quotes = Quote.where(processed: false)
     @processed_quotes = Quote.where(processed: true)
+    render 'dashboard/quotes'
   end
   
 

@@ -6,7 +6,4 @@ import "controllers/disable-right-click"
 import "controllers/hambmenu"
 import "controllers/faq"
 import "controllers/shop"
-
-
-
-
+import "controllers/social_networks"
