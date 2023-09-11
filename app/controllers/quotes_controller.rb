@@ -34,7 +34,7 @@ class QuotesController < ApplicationController
   def destroy
     @quote = Quote.find(params[:id])
     @quote.destroy
-    redirect_to quotes_path, notice: 'Devis supprimé avec succès.'
+    redirect_to dashboard_quotes_path, notice: 'Devis supprimé avec succès.'
   end
 
   # Action pour afficher les détails d'un devis
