@@ -33,6 +33,7 @@
 
         <%= form_tag user_avatars_path(@user), multipart: true do %>
           <h3 class="mb-4 mt-6 text-lg font-semibold">Changer d'avatar :</h3>
+          <%= label_tag :avatar, "Sélectionner un nouvel avatar", class: "block text-white text-sm font-bold mb-2" %>
           <%= file_field_tag :avatar %>
           <%= submit_tag "Mettre à jour l'avatar", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4" %>
         <% end %>

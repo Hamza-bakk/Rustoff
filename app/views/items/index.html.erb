@@ -62,9 +62,9 @@
       <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-md shop-card w-full sm:w-72 mx-2 my-4 min-h-card" data-cat="<%= item.category %>">
         <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-48 object-cover object-center">
         <div class="px-2 sm:px-4 py-2 sm:py-3">
-          <h3 class="text-white font-bold text-base sm:text-sm mb-1 sm:mb-2 text-center"><%= item.title %></h3>
+          <h1 class="text-white font-bold text-base sm:text-sm mb-1 sm:mb-2 text-center"><%= item.title %></h1>
           <p class="text-white text-xs sm:text-sm text-center"><%= item.description %></p>
-          <p class="text-green-700 font-bold text-sm sm:text-base mt-1 sm:mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
+          <p class="text-green-500 font-bold text-sm sm:text-base mt-1 sm:mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
         </div>
         <a href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-purple-400 hover:bg-purple-300 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-full">
           Voir

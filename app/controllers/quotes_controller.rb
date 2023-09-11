@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :mark, :destroy]
+  before_action :authenticate_user!
 
   # Action pour afficher le formulaire de création de devis
   def new
