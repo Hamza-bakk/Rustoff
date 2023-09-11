@@ -29,7 +29,7 @@
           </td>
           <td class="px-4 py-2 border-b text-center">
             <%= form_for(quote, url: quote_path(quote), method: :delete, html: { class: 'delete-form' }) do |f| %>
-              <%= f.button type: 'submit', class: 'text-red-700 hover:text-red-500' do %>
+              <%= f.button type: 'submit', class: 'text-red-700 hover:text-red-500', 'aria-label': 'Supprimer le devis' do %>
                 <i class="fas fa-trash"></i>
               <% end %>
             <% end %>
