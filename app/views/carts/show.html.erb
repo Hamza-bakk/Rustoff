@@ -35,22 +35,20 @@
             </div>
           </div>
         <% end %>
-
-        <a href="<%= items_path %>" class="flex font-semibold text-purple-400 text-xs sm:text-sm mt-4 sm:mt-10">
-          <svg class="fill-current mr-2 text-purple-400 w-4 sm:w-5" viewBox="0 0 448 512">
-            <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.090-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/>
-          </svg>
-          Continuer le shopping
-        </a>
-      <% else %>
-        <div class="empty-cart-message text-center text-red-600 text-2xl mt-4 sm:mt-10">
-          Votre panier est vide.
-          <%= link_to "Revenir à la liste", items_path, class: "text-purple-400 font-bold rounded-full underline text-xs sm:text-sm" %>
-        </div>
-      <% end %>
-    </div>
-
-    <div id="summary" class="w-full sm:w-1/4 bg-gray-600 px-4 py-4 sm:px-8 sm:py-10">
+          <a href="<%= items_path %>" class="flex font-semibold text-purple-400 text-xs sm:text-sm mt-4 sm:mt-10">
+           <svg class="fill-current mr-2 text-purple-400 w-4 sm:w-5" viewBox="0 0 448 512">
+             <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.090-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/>
+            </svg>
+           Continuer le shopping
+         </a>
+        <% else %>
+         <div class="empty-cart-message text-center text-red-600 text-2xl mt-4 sm:mt-10">
+            Votre panier est vide.
+            <%= link_to "Revenir à la liste", items_path, class: "text-purple-400 font-bold rounded-full underline text-xs sm:text-sm" %>
+         </div>
+        <% end %>
+      </div>
+      <div id="summary" class="w-full sm:w-1/4 bg-gray-600 px-4 py-4 sm:px-8 sm:py-10">
       <h1 class="font-semibold text-white text-xl sm:text-2xl border-b pb-4">Récapitulatif</h1>
       <div class="flex justify-between mt-4 sm:mt-10 mb-2 sm:mb-5">
         <span class="font-semibold text-white text-xs sm:text-sm uppercase">Produits <%= @cart_items.size %></span>
@@ -61,13 +59,15 @@
         <input type="text" id="promo" placeholder="Entrer votre code" class="p-2 text-xs sm:text-sm w-full">
       </div>
       <button class="bg-red-500 hover:bg-red-600 px-4 sm:px-5 py-2 text-xs sm:text-sm text-white uppercase">Appliquer</button>
-      <div class="border-t mt-4 sm:mt-8">
-        <div class="flex font-semibold text-white justify-between py-3 text-xs sm:text-sm uppercase">
-          <span>Total Commande</span>
-          <span><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
-        </div>
-        <%= button_to "Payer", checkout_create_path(total: @cart_total), class: "bg-purple-400 font-semibold hover:bg-purple-300 py-2 text-xs sm:text-sm text-black uppercase w-full btn btn-primary", data: {turbo: false} %>
-      </div>
-    </div>
+     <div class="border-t mt-4 sm:mt-8">
+  <div class="flex font-semibold text-white justify-between py-3 text-xs sm:text-sm uppercase">
+    <span>Total Commande</span>
+    <span><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
+  </div>
+  <% if @cart_items.sum { |item| item.quantity.to_i * item.item.price } > 0 %>
+    <%= button_to "Payer", checkout_create_path(total: @cart_total), class: "bg-purple-400 font-semibold hover:bg-purple-300 py-2 text-xs sm:text-sm text-black uppercase w-full btn btn-primary", data: {turbo: false} %>
+  <% else %>
+    <%= button_to "Payer", "#", class: "bg-purple-400 font-semibold py-2 text-xs sm:text-sm text-black uppercase w-full btn btn-primary disabled", disabled: true %>
+  <% end %>
   </div>
 </div>
