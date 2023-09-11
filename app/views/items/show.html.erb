@@ -1,21 +1,20 @@
-
 <div class="p-2">
-  <div class="rounded-lg shadow-md overflow-hidden bg-gray-800 mt-20 mb-20 ml-20 mr-20">
+  <div class="rounded-lg shadow-md overflow-hidden bg-gray-800 mt-4 mb-4 mx-2">
     <%= image_tag @item.image_url, alt: @item.title, class: "w-full h-auto" %>
-    <div class="p-4">
-      <h2 class="text-lg text-white font-semibold mb-2"><%= @item.title %></h2>
-      <p class="text-white mb-2"><%= @item.description %></p>
-      <p class="text-green-600 font-semibold">€<%= @item.price %></p>
+    <div class="p-3">
+      <h2 class="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white font-semibold mb-2"><%= @item.title %></h2>
+      <p class="text-white mb-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl"><%= @item.description %></p>
+      <p class="text-green-600 font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">€<%= @item.price %></p>
       <div class="mt-2">
         <% if user_signed_in? %>
           <%= form_tag({ controller: "carts", action: "create" }, method: :post, class: "flex items-center") do %>
             <%= hidden_field_tag "item_id", @item.id %>
-            <label for="quantity" class="text-white font-semibold mr-2">Quantité:</label>
-            <%= number_field_tag "quantity", 1, min: 1, class: "w-12 text-center border rounded-md", id: "quantity" %>
-            <%= submit_tag "Ajouter au panier", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded-full ml-2" %>
+            <label for="quantity" class="text-white font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mr-2">Quantité:</label>
+            <%= number_field_tag "quantity", 1, min: 1, class: "w-12 text-center border rounded-md text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", id: "quantity" %>
+            <%= submit_tag "Ajouter au panier", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-1 px-2 rounded-full ml-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl" %>
           <% end %>
         <% end %>
-        <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-1 px-2 rounded-full text-xs" %>
+        <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-1 px-2 rounded-full text-xxs sm:text-xs md:text-sm lg:text-base xl:text-lg" %>
       </div>
     </div>
   </div>

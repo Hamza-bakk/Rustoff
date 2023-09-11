@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :users
   # ...
   
-  resources :quotes, only: [:new, :create, :show, :destroy]
+  resources :quotes, only: [:index, :new, :create, :show, :destroy]
   post 'quotes/:id/mark', to: 'quotes#mark', as: :mark_quote
   resources :quotes do
     member do
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
   get '/dashboard/users', to: 'dashboard#users'
-  get '/dashboard/quotes', to: 'dashboard#quotes'
+  get '/dashboard/quotes', to: 'dashboard#quotes', as: 'dashboard_quotes'
   get '/dashboard/store', to: 'dashboard#store'
   post '/dashboard/create', to: 'dashboard#create', as: 'dashboard_create'
   get 'dashboard/products', to: 'dashboard#products', as: 'dashboard_products'
