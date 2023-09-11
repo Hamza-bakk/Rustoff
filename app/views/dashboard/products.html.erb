@@ -9,13 +9,13 @@
           <div class="px-4 py-3">
             <h3 class="text-black font-bold text-sm mb-2 text-center"><%= item.title %></h3>
             <p class="text-black text-xs text-center"><%= item.description %></p>
-            <p class="text-green-700 font-bold text-sm mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
+            <p class="text-black font-bold text-sm mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
           </div>
-          <%= form_for(item, url: item_path(item), method: :delete) do |f| %>
-            <%= f.button type: 'submit', class: "absolute bottom-0 right-0 mb-2 mr-2 text-red-700 hover:text-red-500" do %>
-              <i class="fas fa-trash"></i>
+            <%= form_for(item, url: item_path(item), method: :delete) do |f| %>
+              <%= f.button type: 'submit', class: "absolute bottom-0 right-0 mb-2 mr-2 text-red-700 hover:text-red-500", 'aria-label': "Supprimer l'élément" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
             <% end %>
-          <% end %>
         </div>
       <% end %>
     </div>
