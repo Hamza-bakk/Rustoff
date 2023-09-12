@@ -7,7 +7,7 @@
 </div>
 
 <h1 align="center">Rustoff</h1>
-<h1 align="center">Projet fait par une équipe de développeur de 4 personnes : AGlae - Timmy - Florian - Hamza</h1>
+<h1 align="center">Projet fait par une équipe de développeur de 4 personnes : Aglae - Timmy - Florian - Hamza</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/Hamza-bakk/rustoff?color=56BEB8">
@@ -55,19 +55,23 @@ Mise en valeur du portfolio : Le site web permettra à notre client de présente
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Boutique
+:heavy_check_mark: Portfolio
+:heavy_check_mark: FAQ
+:heavy_check_mark: Devis
+
+## :rocket: Links ##
+
+https://trello.com/b/Oy1mcLxJ/projet-rustoff-thp
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [Ruby]
+- [Tailwind]
+- [JS]
+- [Stripe]
 
 ## :white_check_mark: Requirements ##
 
