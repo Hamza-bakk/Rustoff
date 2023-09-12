@@ -2,7 +2,7 @@ class Item < ApplicationRecord
     validates :title, presence: true
     validates :description, presence: true
     validates :price, presence: true
-    validates :image_url, presence: true
+    validates :image_url, presence: true, uniqueness: true
     validates :alt, presence: true
     validates :category, presence: true
 
