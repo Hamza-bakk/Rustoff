@@ -1,62 +1,222 @@
-<section class="mt-16">
-  <article>
-    <%= link_to "Pokémon", pokemon_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/pokemon/img_7.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="Un Gyarados néon qui entoure un magicarpe lui aussi néon" >
-      <img src="../assets/images/pokemon/poke_unite.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="4 pokémons sur un lit entrain de dormir">
-      <img src="../assets/images/pokemon/img_2.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="un dracofeu qui sort en fureur d'une pokéball">
-      <img src="../assets/images/pokemon/img_1.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="3 carapuces qui jouent dans l'eau dans une pokéball ">
+
+<div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+    <button type="button" class="category-button text-purple-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-purple-500 dark:text-purple-500 dark:hover:text-black dark:hover:bg-purple-500 dark:bg-gray-900 dark:focus:ring-purple-800" data-category="all">All categories</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="pokemon">Pokémon</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="twitch">Twitch</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="logo">Logo</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="3d">3D</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="tattoo">Tattoo</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="illustrations">Illustrations</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="avatars">Avatars</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="autres">Autres</button>
+    <button type="button" class="category-button text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-purple-400" data-category="collaborations">Collaborations</button>
+
+
+
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 ml-4 mr-12 mb-4">
+    <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/magi.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-    <%= link_to "Emote Twitch", emote_twitch_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/overlay/img_5.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="un kit de 45 emotes différentes">
-      <img src="../assets/images/overlay/img_6.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="7 emotes de chien">
-      <img src="../assets/images/overlay/img_8.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="5 emotes de tetes de diables">
-      <img src="../assets/images/overlay/img_11.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="6 emotes de burgers evoluant">
+    <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/img_1.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-     <%= link_to "logo", logo_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/logo/hellistra1.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/logo/malife2.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/logo/malife3.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/logo/raven.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
+    <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/img_2.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-    <%= link_to "3D", troisD_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/3D/IMG_01111.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/3D/IMG_0098.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/3D/IMG_0115.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/3D/IMG_0134.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/img_3.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-    <%= link_to "tattoo", tattoo_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/tattoo/fond_tatoo_pivoine.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/tattoo/tatoo_cerise.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/tattoo/tatoo_dragon.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/tattoo/tatoo.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/img_9.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-    <%= link_to "autre", autre_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/divers/canyon.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/divers/forest.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/divers/bird.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
-      <img src="../assets/images/divers/plaine.png" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/img_10.jpg') %>" alt="">
     </div>
-  </article>
-  <article>
-    <%= link_to "casque GPExplorer", casque_path, class: "text-white bg-gray-600 hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-800 hover:bg-gray-700 focus:ring-gray-600 border-gray-600 ml-4 px-8 group-hover:stroke-white" %>
-    <div class="flex flex-row">
-      <img src="../assets/images/collab/casque.jpg" class="rounded-lg object-scale-down h-50 w-96 m-10" alt="">
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/Mew_two_neon.jpg') %>" alt="">
     </div>
-  </article>
-</section>
+            <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/miaouss.png') %>" alt="">
+    </div>
+            <div>
+      <img class="h-auto max-w-full rounded-lg category-image pokemon" src="<%= asset_path('pokemon/poke_unite.jpg') %>" alt="">
+    </div>
+    
+
+            <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_5.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_6.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_8.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_11.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_13.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_14.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_15.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/img_19.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/overlay1.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/overlay2.jpg') %>" alt="">
+    </div>
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image twitch" src="<%= asset_path('overlay/overlay3.jpg') %>" alt="">
+    </div>
+
+    <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/4.jpg') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/hellistra1.jpg') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/img_4.jpg') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/malife2.jpg') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/malife3.jpg') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image logo" src="<%= asset_path('logo/raven.jpg') %>" alt="">
+    </div>
+
+    <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0100.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0113.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0123.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0125.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0126.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0127.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0146.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_0151.jpg') %>" alt="">
+    </div>
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image 3d" src="<%= asset_path('3D/IMG_01111.jpg') %>" alt="">
+    </div>
+
+        <div>
+      <img class="h-auto max-w-full rounded-lg category-image tattoo" src="<%= asset_path('tattoo/fond_tatoo_pivoine.jpg') %>" alt="">
+    </div>
+            <div>
+      <img class="h-auto max-w-full rounded-lg category-image tattoo" src="<%= asset_path('tattoo/tatoo_cerise.png') %>" alt="">
+    </div>
+            <div>
+      <img class="h-auto max-w-full rounded-lg category-image tattoo" src="<%= asset_path('tattoo/tatoo.png') %>" alt="">
+    </div>
+
+                <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/arbre.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/bird.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/canyon.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/desert.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/forest.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/IMG_0071.jpg') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/jap.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/nuit_noir.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/plaine_2.png') %>" alt="">
+    </div>
+                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/plaine.png') %>" alt="">
+    </div>
+                        <div>
+      <img class="h-auto max-w-full rounded-lg category-image illustrations" src="<%= asset_path('illustrations/IMG_0069.jpg') %>" alt="">
+    </div>
+                            <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/hfhg.png') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_22.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_23.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_24.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_25.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_26.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_27.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_28.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_29.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_30.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_31.jpg') %>" alt="">
+    </div>
+                                <div>
+      <img class="h-auto max-w-full rounded-lg category-image avatars" src="<%= asset_path('avatars/img_32.jpg') %>" alt="">
+    </div>
+
+                                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image collaborations" src="<%= asset_path('collab/3.jpg') %>" alt="">
+    </div>
+                                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image collaborations" src="<%= asset_path('collab/6.jpg') %>" alt="">
+    </div>
+                                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image collaborations" src="<%= asset_path('collab/mexique.jpg') %>" alt="">
+    </div>
+                                    <div>
+      <img class="h-auto max-w-full rounded-lg category-image collaborations" src="<%= asset_path('collab/casque.jpg') %>" alt="">
+    </div>
+</div>
+
+
