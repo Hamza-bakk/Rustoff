@@ -1,5 +1,5 @@
 <div class="container mx-auto flex items-center justify-center mt-10">
-  <h1 class="text-4xl font-bold p-4 border-4 border-gray-500 rounded inline-block">À propos de moi :</h1>
+    <h1 class="text-4xl font-bold p-4 border-4 border-gray-500 rounded inline-block">À propos de moi :</h1>
 </div>
 
 <div class="max-w-6xl flex items-center h-auto flex-wrap mx-auto mt-10 mb-10 ">
@@ -7,8 +7,9 @@
         class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-gray-800 mx-6 lg:mx-0">
 
         <div class="p-4 md:p-12 text-center lg:text-left">
-            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-8 h-48 w-48 bg-cover bg-center"
-                style="background-image: url('assets/rusty.png')" alt="Photo de profil déssiné de Rustoff avec un crayon dans les mains"></div>
+            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-8 h-48 w-48 bg-cover bg-center">
+                <img src="<%= asset_path('rusty.png') %>" alt="Dessin de Rustoff attrapant un crayon" class="object-cover w-full h-full">
+            </div>
 
             <h1 class="text-4xl text-white font-bold pt-4 lg:pt-0">Rustoff</h1>
             <div class="mx-auto lg:mx-0 w-4/5 pt-2 border-b-2 border-purple-400 opacity-25"></div>
@@ -29,7 +30,7 @@
                     <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/>
                 </svg> rustgraph@gmail.com
             </p>
-            <p class="pt-4 text-lg text-white">Description courte facultative à propos de vous, de ce que vous faites, etc.</p>
+            <p class="pt-4 text-lg text-white">Je suis grahiste depuis plusieurs année. J'utilise le crayon comme la tablette graphique suivant les besoins. J'aime créer des designs uniques et originaux pour mes clients. Mon objectif est de fournir des visuels de haute qualité qui répondent aux besoins de mes clients. Je suis passionné par mon travail et je suis toujours à la recherche de nouvelles idées et de nouvelles inspirations pour mes projets.</p>
 
             <div class="pt-8 pb-4">
                 <a href="mailto:rustgraph@gmail.com" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded-full">
