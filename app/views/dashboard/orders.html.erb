@@ -2,6 +2,18 @@
   <h1 class="text-4xl font-bold p-4 border-4 border-gray-500 rounded inline-block mb-10">Liste des commandes :</h1>
 </div>
 
+<div class="container mx-auto mt-6 text-center mb-10">
+  <%= form_tag dashboard_orders_path, method: :get, class: "mb-4" do %>
+    <label for="start_date" class="text-black">Date de début :</label>
+    <%= text_field_tag "start_date",  params[:start_date], class: "border rounded p-2 datepicker", data: { format: "DD/MM/YYYY" }, autocomplete: "off" %>
+
+    <label for="end_date" class="text-black ml-4">Date de fin :</label>
+    <%= text_field_tag "end_date", params[:end_date], class: "border rounded p-2 datepicker2", data: { format: "DD/MM/YYYY" }, autocomplete: "off" %>
+
+    <%= submit_tag "Rechercher", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4" %>
+  <% end %>
+</div>
+
 <div class="overflow-x-auto">
   <table class="min-w-full bg-gray-800 border text-white rounded-lg">
     <thead>
@@ -10,7 +22,7 @@
         <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Utilisateur</th>
         <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prix Total</th>
         <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Date de la Commande</th>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Articles commandés</th> <!-- Nouvelle colonne pour les articles -->
+        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Articles commandés</th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +48,6 @@
   </table>
 </div>
 
-  <div class="text-center mt-4">
-    <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
-  </div>
+<div class="text-center mt-4">
+  <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
+</div>
