@@ -1,49 +1,31 @@
 <div class="flex justify-center items-center h-screen">
   <div class="w-full max-w-md px-4">
     <div class="shadow-md rounded px-8 py-6 bg-gray-800">
-      <h2 class="text-2xl text-white font-semibold text-center mb-4">Modification mot de passe <%= resource_name.to_s.humanize %></h2>
+      <h2 class="text-2xl text-white font-semibold text-center mb-4">Change your password</h2>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
 
         <div class="mb-4">
-          <%= f.label :email, class: "block text-white text-sm font-bold mb-2" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
-        </div>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div class="mb-4">
-            Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-          </div>
-        <% end %>
-
-        <div class="mb-4">
-          <%= f.label :password, class: "block text-white text-sm font-bold mb-2" %>
+          <%= f.label :password, "New password", class: "block text-white text-sm font-bold mb-2" %><br />
           <% if @minimum_password_length %>
-            <p class="text-xs text-white mb-2">
-              (<%= @minimum_password_length %> characters minimum)
-            </p>
+            <em class="text-xs text-white mb-2">(<%= @minimum_password_length %> characters minimum)</em><br />
           <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
         </div>
 
         <div class="mb-4">
-          <%= f.label :password_confirmation, class: "block text-white text-sm font-bold mb-2" %>
+          <%= f.label :password_confirmation, "Confirm new password", class: "block text-white text-sm font-bold mb-2" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
         </div>
 
-        <div class="mb-4">
-          <%= f.label :current_password, class: "block text-white text-sm font-bold mb-2" %>
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
-        </div>
-
-        <div class="flex justify-between items-center mt-4">
-          <%= f.submit "Mettre à jour", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Es-tu sûr??" }, method: :delete, class: "bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <div class="actions">
+          <%= f.submit "Change my password", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
 
-      <%= link_to "Retour", :back, class: "mt-4 text-white hover:text-blue-700 font-semibold" %>
+      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

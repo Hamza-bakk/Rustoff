@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :items
   devise_for :users
+ 
   resources :users, :paths => 'users'
   delete '/users/:id', to: 'users#destroy', as: 'delete_user'
 
