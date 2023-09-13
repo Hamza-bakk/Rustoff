@@ -15,7 +15,11 @@ class DashboardController < ApplicationController
   end
 
   def orders
-    @orders = Order.all
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    
+    # Filtrez les commandes en fonction des dates fournies
+    @orders = Order.where(created_at: start_date..end_date)
   end
 
 
