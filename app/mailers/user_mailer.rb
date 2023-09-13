@@ -1,6 +1,10 @@
 class UserMailer < ApplicationMailer
   default from: 'rustoffgp@proton.me'
-
+=begin
+  
+rescue => exception
+  
+end
     def welcome_email(user)
       @user = user
       @url  = 'www.rustoff-621db6cfed24.herokuapp.com'
@@ -9,3 +13,4 @@ class UserMailer < ApplicationMailer
     end
   end
 end
+=end
