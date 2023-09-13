@@ -8,3 +8,4 @@ class UserMailer < ApplicationMailer
       mail(to: @user.email, subject: 'Bienvenue chez nous!', :host => 'www.rustoff-621db6cfed24.herokuapp.com')
     end
   end
+end
