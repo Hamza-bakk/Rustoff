@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'rustoffgp@proton.me'
-
+=begin
     def welcome_email(user)
       @user = user
       @url  = 'www.rustoff-621db6cfed24.herokuapp.com'
@@ -8,3 +8,4 @@ class UserMailer < ApplicationMailer
       mail(to: @user.email, subject: 'Bienvenue chez nous!', :host => 'www.rustoff-621db6cfed24.herokuapp.com')
     end
   end
+=end
