@@ -2,14 +2,13 @@
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Bouton du menu mobile (hamburger menu) -->
-          <div class="sm:hidden" id="mobile-menu-button"> <!-- Ajoutez l'ID ici -->
+          <div class="sm:hidden" id="mobile-menu-button">
             <button aria-controls="mobile-menu" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
-              <i class="fas fa-bars text-2xl"></i> <!-- Icône du hamburger menu -->
+              <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-4 ml-4">
         <%= link_to root_path do %>
           <img class="h-8 w-auto" src="<%= asset_path('rust.png') %>" alt="Rustoff logo ampoule">
         <% end %>
