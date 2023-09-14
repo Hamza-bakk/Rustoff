@@ -2,12 +2,10 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :mark, :destroy]
   before_action :authenticate_user!
 
-  # Action pour afficher le formulaire de création de devis
   def new
     @quote = Quote.new
   end
 
-  # Action pour créer un devis
   def create
     category_label = params[:quote][:category]  
     category = Category.find_or_create_by(label: category_label) 
@@ -38,7 +36,6 @@ class QuotesController < ApplicationController
     redirect_to dashboard_quotes_path, notice: 'Devis supprimé avec succès.'
   end
 
-  # Action pour afficher les détails d'un devis
   def show
   end
 

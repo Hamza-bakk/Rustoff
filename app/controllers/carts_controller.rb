@@ -10,13 +10,12 @@ class CartsController < ApplicationController
   # GET /carts/1 or /carts/1.json
   def show
     @user = current_user
-    @cart = Cart.find_or_create_by(user: current_user) # Assurez-vous que le panier existe ou créez-le si nécessaire
+    @cart = Cart.find_or_create_by(user: current_user)
     @cart_items = @cart.cart_items
     @cart_total = @cart.total_price
   end
   
   def get_cart_total
-    # Ma logique pour obtenir le total du panier, par exemple :
     @cart = current_user.cart
     @cart_total = @cart.total_price
   end

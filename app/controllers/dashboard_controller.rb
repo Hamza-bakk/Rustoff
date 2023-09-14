@@ -39,13 +39,12 @@ class DashboardController < ApplicationController
     @users = User.all
   end
   
-  # Vous pouvez ajouter d'autres actions de contrôleur ici en fonction de vos besoins.
   def create
     @item = Item.new(item_params)
     if @item.save
       redirect_to dashboard_store_path, notice: "Le produit a été ajouté avec succès."
     else
-      render 'store' # Si la sauvegarde échoue, redirigez l'utilisateur vers la vue "store" avec des erreurs.
+      render 'store'
     end
   end
   
