@@ -1,22 +1,30 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="flex justify-center items-center h-screen">
+  <div class="w-full max-w-md px-4">
+    <div class="shadow-md rounded px-8 py-6 bg-gray-800">
+      <h2 class="text-2xl text-white font-semibold text-center mb-4">Change your password</h2>
 
-  <div class="field">
-    <%= f.label :password, "Nouveau mot de passe", class: "label" %>
-    <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe", class: "label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :password, "Nouveau mot de passe", class: "label text-white text-sm font-bold mb-2" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :current_password, "Mot de passe actuel", class: "label" %>
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
-  </div>
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "Confirmer le nouveau mot de passe", class: "label text-white text-sm font-bold mb-2" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Mettre à jour", class: "button is-primary" %>
+        <div class="mb-4">
+          <%= f.label :current_password, "Mot de passe actuel", class: "label text-white text-sm font-bold mb-2" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Mettre à jour", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
