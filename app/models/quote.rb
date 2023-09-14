@@ -7,5 +7,5 @@ class Quote < ApplicationRecord
 
   CATEGORY_OPTIONS = ['3D', 'Animation', 'Logo', 'Twitch', 'Merch', 'Tattoo', 'Design divers', 'Avatars', 'Autres']
 
-  enum category_enum: CATEGORY_OPTIONS # Renommez l'énumération en category_enum
+  enum category_enum: CATEGORY_OPTIONS
 end
