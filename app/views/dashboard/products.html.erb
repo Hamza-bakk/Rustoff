@@ -4,7 +4,7 @@
   <% @items.each_slice(4) do |item_group| %>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       <% item_group.each do |item| %>
-        <div class="relative bg-gray-400 rounded-lg overflow-hidden shadow-md">
+        <div class="relative bg-white rounded-lg overflow-hidden shadow-md">
           <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-32 object-cover object-center">
           <div class="px-4 py-3">
             <h3 class="text-black font-bold text-sm mb-2 text-center"><%= item.title %></h3>
