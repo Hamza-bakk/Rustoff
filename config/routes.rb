@@ -15,10 +15,9 @@ Rails.application.routes.draw do
   resources :users, :paths => 'users'
   delete '/users/:id', to: 'users#destroy', as: 'delete_user'
 
-  resources :quotes, only: [:index, :new, :create, :show, :destroy]
-  post 'quotes/:id/mark', to: 'quotes#mark', as: :mark_quote
-  resources :quotes do
+  resources :quotes, only: [:index, :new, :create, :show, :destroy] do
     member do
+      post :mark, action: :mark
       post :reprocess
     end
   end
@@ -34,7 +33,7 @@ Rails.application.routes.draw do
   end
 
 
-  get 'shop/index'
+  
   resources :orders, only: [:index]
   resources :profiles, only: [:show, :edit, :update]
   resources :users, only: [:show] do
