@@ -1,25 +1,200 @@
-<div class="max-w-4xl mx-auto mt-56">
-  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-    <img src="<%= asset_path('dash.png') %>" alt="Image de Dashboard" class="w-full h-64 object-cover object-center">
+<div class="antialiased bg-black w-full min-h-screen text-slate-300 relative py-4">
+  <div class="grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
+    <div id="menu" class="bg-white/10 col-span-3 rounded-lg p-4">
+      <h1 class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 to-transparent bg-clip-text text-transparent">
+        Dashboard<span class="text-indigo-400">.</span>
+      </h1>
+      <p class="text-slate-400 text-sm mb-2">Admin,</p>
+      <hr class="my-2 border-slate-700">
+      <div id="menu" class="flex flex-col space-y-2 my-5">
+        <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-house text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xl lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Dashboard</p>
+              <p class="text-slate-400 text-sm hidden md:block">Data général et 24H</p>
+            </div>
+          </div>
+        </a>
+        <a href="<%= dashboard_orders_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-bag-shopping text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Commandes</p>
+              <p class="text-slate-400 text-sm hidden md:block">Liste des commandes</p>
+            </div>
+          </div>
+        </a>
 
-    <div class="px-6 py-4">
-      <div class="font-bold text-center text-white text-xl mb-6">Dashboard Admin</div>
-
-      <div class="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4">
-        <div class="flex-grow mb-4">
-          <a href="<%= dashboard_products_path %>" class="bg-teal-600 hover:bg-teal-300 text-black font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Produits</a>
+        <a href="<%= dashboard_users_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-user-group text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xl lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Utilisateurs</p>
+              <p class="text-slate-400 text-sm hidden md:block">Liste des utilisateurs</p>
+            </div>
+          </div>
+        </a>
+        <a href="<%= dashboard_quotes_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-file-contract text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xl lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Devis</p>
+              <p class="text-slate-400 text-sm hidden md:block">Gérer les Devis</p>
+            </div>
+          </div>
+        </a>
+        <a href="<%= dashboard_products_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-shop text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Boutique</p>
+              <p class="text-slate-400 text-sm hidden md:block">Liste des produits en boutique</p>
+            </div>
+          </div>
+        </a>
+        <a href="<%= dashboard_store_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+            <div>
+              <i class="fa-solid fa-plus text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xl lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Produits</p>
+              <p class="text-slate-400 text-sm hidden md:block">Ajouts produits boutique</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <p class="text-sm text-center text-gray-600">Dashboard | &copy; 2023 Rustoff</p>
+    </div>
+    <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+      <div id="24h">
+        <h1 class="font-bold py-4 uppercase">Statistiques</h1>
+        <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-black/60 to-white/5 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+                    <div id="stats-1">
+                    <i class="fa-solid fa-users text-4xl text-white"></i>
+                    </div>
+              <div>
+                <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Utilisateurs</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @num_users %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-black/60 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+                    <div id="stats-1">
+                    <i class="fa-solid fa-file-invoice-dollar text-4xl text-white"></i>
+                    </div>
+              <div>
+                <p class="text-teal-300 text-sm font-medium uppercase leading-4">Devis</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @num_quotes %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+                    <div class="bg-black/60 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+                <div id="stats-1">
+                    <i class="fa-solid fa-file-circle-check text-4xl text-white"></i>
+                </div>
+              <div>
+                <p class="text-green-300 text-sm font-medium uppercase leading-4">Devis Traité</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @processed_quotes.count %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+            <div class="bg-black/60 p-6 rounded-lg">
+                <div class="flex flex-row space-x-4 items-center">
+                    <div id="stats-1">
+                    <i class="fa-solid fa-file-circle-xmark text-4xl text-white"></i>
+                    </div>
+                    <div>
+                    <p class="text-purple-300 text-sm font-medium uppercase leading-4">Devis Non-Traité</p>
+                    <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                        <span><%= @unprocessed_quotes.count %></span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+          <div class="bg-black/60 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+                    <div id="stats-1">
+                    <i class="fa-solid fa-euro-sign text-4xl text-white"></i>
+                    </div>
+              <div>
+                <p class="text-blue-300 text-sm font-medium uppercase leading-4">Commandes</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @num_orders %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-black/60 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+              <div id="stats-1">
+                <i class="fa-regular fa-images text-4xl text-white"></i>
+              </div>
+              <div>
+                <p class="text-rose-300 text-sm font-medium uppercase leading-4">Articles en Boutique</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @num_items %></span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex-grow mb-4">
-          <a href="<%= dashboard_store_path %>" class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Ajout Produits</a>
+      </div>
+      <div id="last-incomes">
+        <h1 class="font-bold py-4 uppercase">Commandes dernières 24H</h1>
+        <div id="stats" style="max-width: 600px;">
+          <% @recent_orders.each do |order| %>
+            <div class="bg-black/60 to-white/5 rounded-lg" style="display: inline-block; width: auto; margin: 10px;">
+              <div class="flex flex-row items-center">
+                <div class="text-3xl p-4">💰</div>
+                <div class="p-2">
+                  <p class="text-xl font-bold"><%= number_to_currency(order.total_price, unit: '€') %></p>
+                  <p class="text-gray-500 font-medium"><%= order.user.email %></p>
+                  <p class="text-gray-500 text-sm"><%= order.created_at.strftime("%d %b %Y") %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div class="flex-grow mb-4">
-          <a href="<%= dashboard_users_path %>" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Utilisateurs</a>
-        </div>
-        <div class="flex-grow mb-4">
-          <a href="<%= dashboard_orders_path %>" class="bg-gray-500 hover:bg-gray-300 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Commandes</a>
-        </div>
-        <div class="flex-grow mb-4">
-          <a href="<%= dashboard_quotes_path %>" class="bg-rose-500 hover:bg-rose-300 text-black font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Devis</a>
+      </div>
+      <div id="last-users">
+        <h1 class="font-bold py-4 uppercase">Utilisateurs inscrits dernières 24H</h1>
+        <div class="overflow-x-scroll">
+          <table class="w-full whitespace-nowrap">
+            <thead class="bg-black/60">
+              <th class="text-left py-3 px-2">Email</th>
+              <th class="text-left py-3 px-2">Group</th>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr class="border-b border-gray-700">
+                  <td class="py-3 px-2"><%= user.email %></td>
+                  <td class="py-3 px-2"><%= user.admin ? 'Administrator' : 'User' %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
