@@ -65,9 +65,9 @@ L'essence du projet consiste en la conception et le développement d'un site web
 
 ## :rocket: Links ##
 
-Lien Trello : https://bitly.ws/USyi
-Lien Production HEROKO : https://bitly.ws/UMCP
-Base des données RUSTOFF : https://bitly.ws/USyb
+- Lien Trello : https://bitly.ws/USyi
+- Lien Production HEROKO : https://bitly.ws/UMCP
+- Base des données RUSTOFF : https://bitly.ws/USyb
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
