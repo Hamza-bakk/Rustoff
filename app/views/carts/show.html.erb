@@ -54,11 +54,11 @@
         <span class="font-semibold text-white text-xs sm:text-sm uppercase">Produits <%= @cart_items.size %></span>
         <span class="font-semibold text-white text-xs sm:text-sm"><%= number_to_currency(@cart_items.sum { |item| item.quantity.to_i * item.item.price }, unit: '€') %></span>
       </div>
-      <div class="py-6 sm:py-10">
-        <label for="promo" class="font-semibold text-white inline-block mb-3 text-xs sm:text-sm uppercase">Code Promo</label>
-        <input type="text" id="promo" placeholder="Entrer votre code" class="p-2 text-xs sm:text-sm w-full">
-      </div>
-      <button class="bg-red-500 hover:bg-red-600 px-4 sm:px-5 py-2 text-xs sm:text-sm text-white uppercase">Appliquer</button>
+        <div class="py-6 sm:py-10">
+          <label for="promo" class="font-semibold text-white inline-block mb-3 text-xs sm:text-sm uppercase">Code Promo</label>
+          <input type="text" id="promo" placeholder="! FONCTION A VENIR !" class="p-2 text-xs sm:text-sm w-full pointer-events-none" disabled>
+        </div>
+        <button class="bg-red-500 hover:bg-red-600 px-4 sm:px-5 py-2 text-xs sm:text-sm text-white uppercase pointer-events-none" disabled>Appliquer</button>
      <div class="border-t mt-4 sm:mt-8">
   <div class="flex font-semibold text-white justify-between py-3 text-xs sm:text-sm uppercase">
     <span>Total Commande</span>
