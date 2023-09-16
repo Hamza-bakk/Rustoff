@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         
         UserMailer.with(user: @user).welcome_email.deliver_now
         
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to user_url(@user), notice: "L'utilisateur a été créé avec succès." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to user_url(@user), notice: "L'utilisateur a été mis à jour avec succès." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     @user.destroy
     
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "User was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "L'utilisateur a été détruit avec succès." }
       format.json { head :no_content }
     end
   end

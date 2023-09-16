@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to dashboard_products_path, notice: "Item was successfully destroyed."
+    redirect_to dashboard_products_path, notice: "L'objet a été détruit avec succès."
   end
 
   # GET /items or /items.json
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.html { redirect_to item_url(@item), notice: "L'élément a été créé avec succès." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -25,7 +25,7 @@ class CartItemsController < ApplicationController
     
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to cart_path(current_user.cart), notice: "Cart item was successfully created." }
+        format.html { redirect_to cart_path(current_user.cart), notice: "L'article du panier a été créé avec succès." }
         format.json { render :show, status: :created, location: current_user.cart }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class CartItemsController < ApplicationController
       @cart_item.destroy
       
       respond_to do |format|
-        format.html { redirect_to cart_items_url, notice: "Cart item was successfully destroyed." }
+        format.html { redirect_to cart_items_url, notice: "L'article du panier a été détruit avec succès." }
         format.json { head :no_content }
       end
     end
