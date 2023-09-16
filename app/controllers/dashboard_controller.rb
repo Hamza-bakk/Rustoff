@@ -1,8 +1,17 @@
 class DashboardController < ApplicationController
 
   def index
-    # Vous pouvez ajouter ici la logique de gestion de la page d'accueil du tableau de bord.
-    # Par exemple, récupérer des données de la base de données.
+    @num_users = User.count
+    @num_quotes = Quote.count
+    @num_orders = Order.count
+    @recent_orders = Order.where(created_at: (Time.now - 24.hours)..Time.now).order(created_at: :desc)
+    @users = User.where('created_at >= ?', 24.hours.ago).order(created_at: :desc)
+    @orders = Order.all
+    @order_count = Order.count
+    @num_items = Item.count
+    @processed_quotes = Quote.where(processed: true)
+    @unprocessed_quotes = Quote.where(processed: false)
+
   end
 
   def show
@@ -18,7 +27,7 @@ class DashboardController < ApplicationController
     start_date = params[:start_date]
     end_date = params[:end_date]
     
-    # Filtrez les commandes en fonction des dates fournies
+    
     @orders = Order.where(created_at: start_date..end_date)
   end
 
