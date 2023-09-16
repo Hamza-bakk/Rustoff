@@ -81,7 +81,7 @@ class CartsController < ApplicationController
     @cart_item.destroy
     
     respond_to do |format|
-      format.html { redirect_to cart_path(@cart), notice: "Item was successfully removed from the cart." }
+      format.html { redirect_to cart_path(@cart), notice: "L'article a été supprimé du panier avec succès." }
       format.json { head :no_content }
     end
   end
