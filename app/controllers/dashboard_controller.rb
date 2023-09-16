@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-
+  
   def index
     @num_users = User.count
     @num_quotes = Quote.count
@@ -11,18 +11,18 @@ class DashboardController < ApplicationController
     @num_items = Item.count
     @processed_quotes = Quote.where(processed: true)
     @unprocessed_quotes = Quote.where(processed: false)
-
+    
   end
-
+  
   def show
     # Vous pouvez ajouter ici la logique de gestion de la page d'accueil du tableau de bord.
     # Par exemple, récupérer des données de la base de données.
   end
-
+  
   def store
     @item = Item.new
   end
-
+  
   def orders
     start_date = params[:start_date]
     end_date = params[:end_date]
@@ -30,12 +30,12 @@ class DashboardController < ApplicationController
     
     @orders = Order.where(created_at: start_date..end_date)
   end
-
-
+  
+  
   def products
     @items = Item.all
   end
-
+  
   def quotes
     @quotes = Quote.all
     @unprocessed_quotes = Quote.where(processed: false)
@@ -43,7 +43,7 @@ class DashboardController < ApplicationController
     render 'dashboard/quotes'
   end
   
-
+  
   def users
     @users = User.all
   end
