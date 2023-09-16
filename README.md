@@ -51,7 +51,10 @@ Le projet trouve sa base dans la fusion de deux compétences fondamentales : l'h
 
 L'essence du projet consiste en la conception et le développement d'un site web professionnel qui reflète fidèlement les compétences et le style singulier de notre client dans le domaine du graphisme et de la conception de logos. Ce site web agira à la fois comme un portfolio captivant et comme une vitrine interactive pour mettre en avant ses créations artistiques et son savoir-faire technique, tout en permettant aux utilisateurs de passer des commandes et de réaliser des paiements. Plusieurs arguments soutiennent cette démarche :
 
-Mise en valeur du portfolio : Le site web permettra à notre client de présenter ses créations les plus remarquables de manière visuellement attrayante, offrant ainsi aux visiteurs un aperçu immédiat de son talent et de sa polyvalence artistique. Accessibilité mondiale : Grâce à une présence en ligne, notre client pourra toucher un public mondial et potentiellement attirer des clients internationaux, élargissant ainsi ses opportunités. Interaction engagée : Le site web offrira aux visiteurs la possibilité d'interagir avec les œuvres exposées, de poser des questions et même de solliciter des devis pour des projets spécifiques. Cette interactivité favorisera l'engagement et la conversion des visiteurs en clients.
+- Mise en valeur du portfolio : Le site web permettra à notre client de présenter ses créations les plus remarquables de manière visuellement attrayante, offrant ainsi aux visiteurs un aperçu immédiat de son talent et de sa polyvalence artistique. 
+- Accessibilité mondiale : Grâce à une présence en ligne, notre client pourra toucher un public mondial et potentiellement attirer des clients internationaux, élargissant ainsi ses opportunités. 
+- Interaction engagée : Le site web offrira aux visiteurs la possibilité d'interagir avec les œuvres exposées, de poser des questions et même de solliciter des devis pour des projets spécifiques. Cette interactivité favorisera l'engagement et la conversion des visiteurs en clients.
+
 
 ## :sparkles: Features ##
 
@@ -62,8 +65,9 @@ Mise en valeur du portfolio : Le site web permettra à notre client de présente
 
 ## :rocket: Links ##
 
-https://trello.com/b/Oy1mcLxJ/projet-rustoff-thp
-
+Lien Trello : https://bitly.ws/USyi
+Lien Production HEROKO : https://bitly.ws/UMCP
+Base des données RUSTOFF : https://bitly.ws/USyb
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
@@ -72,6 +76,8 @@ The following tools were used in this project:
 - [Tailwind]
 - [JS]
 - [Stripe]
+- [Mailjet]
+- [PostgreSQL]
 
 ## :white_check_mark: Requirements ##
 
