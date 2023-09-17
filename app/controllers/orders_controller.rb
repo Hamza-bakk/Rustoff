@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = current_user.orders.order(created_at: :desc)
-    
+    @num_orders = current_user.orders.count  
   end
   
   
@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   def show
     @orders = current_user.orders.order(created_at: :desc)
     @order = Order.find(params[:id])
+    
   end
   
 
