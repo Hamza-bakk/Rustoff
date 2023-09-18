@@ -30,7 +30,8 @@ class CheckoutController < ApplicationController
 
     # Après avoir obtenu les informations de paiement depuis Stripe, vous pouvez enregistrer la commande
     # Vous devez personnaliser cette logique en fonction de votre modèle de commande
-    #Succès est transité vers orders show afin de créer l'ID order après paiement ainsi sécurisé la base de données    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    #Succès est transité vers orders show afin de créer l'ID order après paiement ainsi sécurisé la base de données    
+    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     
     # Par exemple, si vous avez un modèle de commande nommé Order :
