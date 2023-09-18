@@ -1,4 +1,4 @@
-<div class="w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mt-10 mb-10 h-108 mx-auto">
+<section class="w-1/2 bg-gray-800 p-6 rounded-lg shadow-lg mt-10 mb-10 h-108 mx-auto">
   <h2 class="text-white text-xl text-center font-semibold mb-4">Édition d'un Article</h2>
   <%= form_for(@item, url: item_path(@item), method: :patch) do |f| %>
     <div class="grid grid-cols-1 gap-4">
@@ -25,4 +25,4 @@
       <%= f.submit "Enregistrer les modifications", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
     </div>
   <% end %>
-</div>
+</section>

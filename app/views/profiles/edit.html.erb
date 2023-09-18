@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center min-h-screen">
-  <div class="w-full max-w-md px-4 mt-32">
-    <div class="shadow-md rounded px-8 text-center py-6 bg-gray-800 text-white">
+<section class="flex flex-col items-center min-h-screen">
+  <article class="w-full max-w-md px-4 mt-32">
+    <article class="shadow-md rounded px-8 text-center py-6 bg-gray-800 text-white">
       <h2 class="text-2xl font-semibold text-center mb-4">Modifier l'Email</h2>
       <%= form_for(@user, url: profile_path, method: :patch, html: { multipart: true }) do |f| %>
         <%= render "devise/shared/error_messages", resource: @user %>
@@ -15,9 +15,9 @@
       <% end %>
       <%= link_to "Retour", profile_path(@user), class: "text-white hover:text-purple-300 font-semibold" %>
     </div>
-  </div>
+  </article>
 
-  <div class="w-full max-w-md px-4 mt-20">
+  <article class="w-full max-w-md px-4 mt-20">
     <div class="shadow-md rounded px-8 py-6 text-white text-center bg-gray-800">
       <div class="relative">
         <div class="flex justify-center -mt-8">
@@ -37,5 +37,5 @@
         <%= link_to "Retour", profile_path(@user), class: "text-white hover:text-purple-300 font-semibold" %>
       </div>
     </div>
-  </div>
-</div>
+  </article>
+</section>

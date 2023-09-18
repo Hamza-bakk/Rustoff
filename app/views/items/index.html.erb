@@ -2,19 +2,19 @@
   <h1 class="text-2xl sm:text-4xl font-bold p-2 sm:p-4 border-4 border-gray-500 rounded inline-block">Boutique RustOff</h1>
 </div>
 
-<div class="info-wrapper mb-4 sm:mb-10 flex justify-center">
-  <div class="shipping-container flex items-center">
+<section class="info-wrapper mb-4 sm:mb-10 flex justify-center">
+  <article class="shipping-container flex items-center">
     <i class="fas fa-truck text-gray-800 text-xl sm:text-2xl mr-2"></i>
     <div class="info-desc text-sm sm:text-base">Livraison Rapide</div>
-  </div>
-  <div class="inventory-container flex items-center ml-4 sm:ml-8">
+  </article>
+  <article class="inventory-container flex items-center ml-4 sm:ml-8">
     <i class="fas fa-shopping-basket text-gray-800 text-xl sm:text-2xl mr-2"></i>
     <div class="info-desc text-sm sm:text-base">Large Choix</div>
-  </div>
-</div>
+  </article>
+</section>
 
-<div class="main-wrapper text-white flex flex-col-reverse sm:flex-row sm:items-start">
-  <div class="menu">
+<section class="main-wrapper text-white flex flex-col-reverse sm:flex-row sm:items-start">
+  <article class="menu">
     <div class="menu-item All">
       <div class="menu-item-title">All</div>
     </div>
@@ -54,10 +54,10 @@
       <div class='menu-item-title'>Twitch</div>
       <div class='menu-item-number'></div>
     </div>
-  </div>
+  </article>
 
 
-  <div class="products-container flex flex-wrap w-full ml-0 sm:ml-4" id="products-container">
+  <article class="products-container flex flex-wrap w-full ml-0 sm:ml-4" id="products-container">
     <% @items.each do |item| %>
       <div class="relative bg-gray-800 rounded-lg overflow-hidden shadow-md shop-card w-full sm:w-72 mx-2 my-4 min-h-card" data-cat="<%= item.category %>">
         <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-48 object-cover object-center">
@@ -66,11 +66,11 @@
           <p class="text-white text-xs sm:text-sm text-center"><%= item.description %></p>
           <p class="text-green-500 font-bold text-sm sm:text-base mt-1 sm:mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
         </div>
-          <a href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-gradient-to-r from-purple-300 to-purple-600 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-lg hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300">
+          <article href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-gradient-to-r from-purple-300 to-purple-600 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-lg hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300">
             Voir
           </a>
       </div>
     <% end %>
-  </div>
-</div>
+  </article>
+</section>
 
