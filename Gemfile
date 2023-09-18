@@ -73,6 +73,10 @@ end
 
 gem "devise", "~> 4.9"
 
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0'
+end
+
 gem "letter_opener", group: :development  
 gem 'dotenv-rails'
 
