@@ -1,5 +1,5 @@
-<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 flex justify-center items-center">
-  <div id="stats" class="text-center">
+<section id="content" class="bg-white/10 col-span-9 rounded-lg p-6 flex justify-center items-center">
+  <article id="stats" class="text-center">
     <h1 class="font-bold py-4 uppercase">Statistiques</h1>
     <div class="bg-black/60 to-white/5 p-6 rounded-lg">
       <div class="flex flex-row space-x-4 items-center">
@@ -27,13 +27,13 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </article>
+</section>
 
-<div class="container mx-auto my-10 px-4">
+<section class="container mx-auto my-10 px-4">
   <h1 class="text-2xl font-bold text-center mb-4">Mes Commandes :</h1>
   <% if @orders.any? %>
-    <div class="order-list space-y-4">
+    <article class="order-list space-y-4">
       <% @orders.each do |order| %>
         <div class="order bg-gray-800 border rounded p-4 shadow-md text-center">
           <h2 class="text-xl text-purple-400 font-semibold mb-2">Commande ## <%= order.id %></h2>
@@ -49,7 +49,7 @@
                     <span class="mr-2">
                       <%= order_item.quantity %> x <%= order_item.item.title %> :
                     </span>
-                    <a href="<%= order_item.item.image_url %>" target="_blank"><%= order_item.item.image_url %></a>
+                    <article href="<%= order_item.item.image_url %>" target="_blank"><%= order_item.item.image_url %></a>
                   </div>
                 </div>
               </li>
@@ -57,9 +57,9 @@
           </ul>
         </div>
       <% end %>
-    </div>
+    </article>
   <% else %>
     <p class="text-2xl text-center text-gray-600 mt-4">Vous n'avez aucune commande passée.</p>
   <% end %>
-</div>
+</section>
 

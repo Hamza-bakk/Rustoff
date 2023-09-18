@@ -1,8 +1,8 @@
-<div class="container mx-auto text-black p-4 w-full">
+<section class="container mx-auto text-black p-4 w-full">
   <div class="flex items-center justify-center mt-10 w-full">
     <h1 class="text-4xl font-bold p-4 border-4 border-gray-500 rounded inline-block mb-10">Liste des commandes :</h1>
   </div>
-  <div class="mt-6 text-center mb-10 w-full">
+  <article class="mt-6 text-center mb-10 w-full">
     <%= form_tag dashboard_orders_path, method: :get, class: "mb-4 w-full" do %>
       <label for="start_date" class="text-black font-semibold">Date de début :</label>
       <%= text_field_tag "start_date", params[:start_date], class: "border rounded p-2 datepicker", data: { format: "DD/MM/YYYY" }, autocomplete: "off" %>
@@ -12,8 +12,8 @@
 
       <%= submit_tag "Rechercher", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4" %>
     <% end %>
-  </div>
-  <div class="overflow-x-auto w-full">
+  </article>
+  <article class="overflow-x-auto w-full">
     <table class="min-w-full bg-gray-800 border text-white rounded-lg">
       <thead>
         <tr>
@@ -45,8 +45,8 @@
         <% end %>
       </tbody>
     </table>
-  </div>
+  </article>
   <div class="text-center mt-4 mb-12 w-full">
     <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
   </div>
-</div>
+</section>
