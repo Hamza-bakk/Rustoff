@@ -1,6 +1,8 @@
 class DashboardController < ApplicationController
   
   def index
+    #Ici on créer les fonctions qui permettent dêtre appeler dans le Dashbord admin et...
+    #...l'intéragir avec les views le .cont permet de regrouper en comptant
     @num_users = User.count
     @num_quotes = Quote.count
     @num_orders = Order.count
@@ -9,6 +11,7 @@ class DashboardController < ApplicationController
     @orders = Order.all
     @order_count = Order.count
     @num_items = Item.count
+    #gestion de devis traité et non traité
     @processed_quotes = Quote.where(processed: true)
     @unprocessed_quotes = Quote.where(processed: false)
     

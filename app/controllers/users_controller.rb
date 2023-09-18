@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
     @num_orders = current_user.orders.count 
   end
-
+  
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])

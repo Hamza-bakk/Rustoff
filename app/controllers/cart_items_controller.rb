@@ -44,25 +44,24 @@ class CartItemsController < ApplicationController
       end
     end
   end
-    # DELETE /cart_items/1 or /cart_items/1.json
-    def destroy
-      @cart_item.destroy
-      
-      respond_to do |format|
-        format.html { redirect_to cart_items_url, notice: "L'article du panier a été détruit avec succès." }
-        format.json { head :no_content }
-      end
-    end
+  # DELETE /cart_items/1 or /cart_items/1.json
+  def destroy
+    @cart_item.destroy
     
-    private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart_item
-      @cart_item = CartItem.find(params[:id])
-    end
-    
-    # Only allow a list of trusted parameters through.
-    def cart_item_params
-      params.require(:cart_item).permit(:cart_id, :item_id, :quantity)
+    respond_to do |format|
+      format.html { redirect_to cart_items_url, notice: "L'article du panier a été détruit avec succès." }
+      format.json { head :no_content }
     end
   end
   
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart_item
+    @cart_item = CartItem.find(params[:id])
+  end
+  
+  # Only allow a list of trusted parameters through.
+  def cart_item_params
+    params.require(:cart_item).permit(:cart_id, :item_id, :quantity)
+  end
+end
