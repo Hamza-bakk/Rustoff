@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     # S'attendre à ce que l'utilisateur ne soit pas valide
     expect(user).to_not be_valid
   end
-
+    #Gestion de vérification création compte 
   it "is not valid without an email" do
     # Créer un utilisateur sans email
     user = User.new(encrypted_password: "your_encrypted_password_here")
