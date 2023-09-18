@@ -23,25 +23,21 @@
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-
   </head>
   <body class="flex flex-col min-h-screen">
     <header>
+        <%= render 'layouts/navbar' %>
+      <% if notice.present? %>
+        <p class="bg-green-200 text-green-800 border-t-4 border-green-600 rounded-b px-4 py-3 shadow-md my-2">
+          <%= notice %>
+        </p>
+      <% end %>
 
-      <%= render 'layouts/navbar' %>
-      
-    <% if notice.present? %>
-      <p class="bg-green-200 text-green-800 border-t-4 border-green-600 rounded-b px-4 py-3 shadow-md my-2">
-        <%= notice %>
-      </p>
-    <% end %>
-
-    <% if alert.present? %>
-      <p class="bg-red-200 text-red-800 border-t-4 border-red-600 rounded-b px-4 py-3 shadow-md my-2">
-        <%= alert %>
-      </p>
-    <% end %>
-
+      <% if alert.present? %>
+        <p class="bg-red-200 text-red-800 border-t-4 border-red-600 rounded-b px-4 py-3 shadow-md my-2">
+          <%= alert %>
+        </p>
+      <% end %>
     </header>
 
     <main class="flex-grow">
@@ -49,10 +45,8 @@
       <%= yield %>
     </main>
     
-
     <footer>
       <%= render 'layouts/footer' %>
     </footer>
-    
   </body>
 </html>

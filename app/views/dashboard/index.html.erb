@@ -29,7 +29,6 @@
             </div>
           </div>
         </a>
-
         <a href="<%= dashboard_users_path %>" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2">
           <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
             <div>
@@ -83,9 +82,9 @@
         <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="bg-black/60 to-white/5 p-6 rounded-lg">
             <div class="flex flex-row space-x-4 items-center">
-                    <div id="stats-1">
-                    <i class="fa-solid fa-users text-4xl text-white"></i>
-                    </div>
+              <div id="stats-1">
+                <i class="fa-solid fa-users text-4xl text-white"></i>
+              </div>
               <div>
                 <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Utilisateurs</p>
                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
@@ -96,9 +95,9 @@
           </div>
           <div class="bg-black/60 p-6 rounded-lg">
             <div class="flex flex-row space-x-4 items-center">
-                    <div id="stats-1">
-                    <i class="fa-solid fa-file-invoice-dollar text-4xl text-white"></i>
-                    </div>
+              <div id="stats-1">
+                <i class="fa-solid fa-file-invoice-dollar text-4xl text-white"></i>
+              </div>
               <div>
                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Devis</p>
                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
@@ -107,11 +106,11 @@
               </div>
             </div>
           </div>
-                    <div class="bg-black/60 p-6 rounded-lg">
+          <div class="bg-black/60 p-6 rounded-lg">
             <div class="flex flex-row space-x-4 items-center">
-                <div id="stats-1">
-                    <i class="fa-solid fa-file-circle-check text-4xl text-white"></i>
-                </div>
+              <div id="stats-1">
+                <i class="fa-solid fa-file-circle-check text-4xl text-white"></i>
+              </div>
               <div>
                 <p class="text-green-300 text-sm font-medium uppercase leading-4">Devis Traité</p>
                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
@@ -120,24 +119,24 @@
               </div>
             </div>
           </div>
-            <div class="bg-black/60 p-6 rounded-lg">
-                <div class="flex flex-row space-x-4 items-center">
-                    <div id="stats-1">
-                    <i class="fa-solid fa-file-circle-xmark text-4xl text-white"></i>
-                    </div>
-                    <div>
-                    <p class="text-purple-300 text-sm font-medium uppercase leading-4">Devis Non-Traité</p>
-                    <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                        <span><%= @unprocessed_quotes.count %></span>
-                    </p>
-                    </div>
-                </div>
-            </div>
           <div class="bg-black/60 p-6 rounded-lg">
             <div class="flex flex-row space-x-4 items-center">
-                    <div id="stats-1">
-                    <i class="fa-solid fa-euro-sign text-4xl text-white"></i>
-                    </div>
+              <div id="stats-1">
+                <i class="fa-solid fa-file-circle-xmark text-4xl text-white"></i>
+              </div>
+              <div>
+                <p class="text-purple-300 text-sm font-medium uppercase leading-4">Devis Non-Traité</p>
+                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                  <span><%= @unprocessed_quotes.count %></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-black/60 p-6 rounded-lg">
+            <div class="flex flex-row space-x-4 items-center">
+              <div id="stats-1">
+                <i class="fa-solid fa-euro-sign text-4xl text-white"></i>
+              </div>
               <div>
                 <p class="text-blue-300 text-sm font-medium uppercase leading-4">Commandes</p>
                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">

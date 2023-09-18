@@ -2,10 +2,8 @@
   <div class="w-full max-w-md px-4 mt-32">
     <div class="shadow-md rounded px-8 text-center py-6 bg-gray-800 text-white">
       <h2 class="text-2xl font-semibold text-center mb-4">Modifier l'Email</h2>
-
       <%= form_for(@user, url: profile_path, method: :patch, html: { multipart: true }) do |f| %>
         <%= render "devise/shared/error_messages", resource: @user %>
-
         <div class="mb-4">
           <%= f.label :email, class: "block text-white text-sm font-bold mb-2" %>
           <%= f.email_field :email, class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition duration-300 hover:border-blue-500" %>
@@ -15,7 +13,6 @@
           <%= f.submit "Mettre à jour", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       <% end %>
-
       <%= link_to "Retour", profile_path(@user), class: "text-white hover:text-purple-300 font-semibold" %>
     </div>
   </div>
@@ -37,7 +34,6 @@
           <%= file_field_tag :avatar %>
           <%= submit_tag "Mettre à jour l'avatar", class: "bg-purple-400 hover:bg-purple-300 text-black font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4" %>
         <% end %>
-
         <%= link_to "Retour", profile_path(@user), class: "text-white hover:text-purple-300 font-semibold" %>
       </div>
     </div>

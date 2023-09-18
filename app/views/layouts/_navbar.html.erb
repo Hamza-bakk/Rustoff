@@ -2,10 +2,10 @@
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <div class="sm:hidden" id="mobile-menu-button">
-            <button aria-controls="mobile-menu" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
-              <i class="fas fa-bars text-2xl"></i>
-            </button>
+        <div class="sm:hidden" id="mobile-menu-button">
+          <button aria-controls="mobile-menu" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
         </div>
       </div>
       <div class="flex items-center space-x-4 ml-4">
@@ -23,21 +23,19 @@
           </div>
         </div>
       </div>
-
       <div class="flex items-center space-x-4">
-    <% if user_signed_in? %>
-  <%= link_to cart_path(current_user.cart), class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
-    <i class="fa-solid fa-cart-shopping"></i>
-    <% if current_user.cart.cart_items.any? %>
-      <span> <%= current_user.cart.cart_items.count %></span>
-    <% end %>
-  <% end %>
-<% else %>
-  <%= link_to cart_path, class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
-    <i class="fa-solid fa-cart-shopping"></i>
-  <% end %>
-<% end %>
-
+        <% if user_signed_in? %>
+          <%= link_to cart_path(current_user.cart), class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <% if current_user.cart.cart_items.any? %>
+              <span> <%= current_user.cart.cart_items.count %></span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to cart_path, class: "badge text-gray-300 hover:text-white text-xl mr-4 cursor-pointer", title: "Panier" do %>
+            <i class="fa-solid fa-cart-shopping"></i>
+          <% end %>
+        <% end %>
 
         <% if user_signed_in? %>
           <%= link_to "Mon Profil", profile_path(current_user), class: "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
@@ -45,8 +43,8 @@
             <%= submit_tag "Se déconnecter", class: "hover:text-gray-200" %>
           <% end %>
         <% else %>
-          <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_session_path %>">Se connecter</a>
-          <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_registration_path %>">S'inscrire</a>
+            <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_session_path %>">Se connecter</a>
+            <a class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="<%= new_user_registration_path %>">S'inscrire</a>
         <% end %>
       </div>
     </div>

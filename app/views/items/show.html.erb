@@ -6,14 +6,12 @@
       <p class="text-white mb-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl"><%= @item.description %></p>
       <p class="text-green-500 font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">€<%= @item.price %></p>
       <div class="mt-2">
-        
-          <%= form_tag({ controller: "carts", action: "create" }, method: :post, class: "flex items-center") do %>
-            <%= hidden_field_tag "item_id", @item.id %>
-            <label for="quantity" class="text-white font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mr-2">Quantité:</label>
-            <%= number_field_tag "quantity", 1, min: 1, class: "w-12 text-center border rounded-md text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", id: "quantity" %>
-            <%= submit_tag 'Ajouter au panier', class: 'bg-gradient-to-r from-purple-300 to-purple-600 text-black font-semibold px-4 py-2 rounded-lg border border-gray-600 hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300 ml-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl' %>
-          <% end %>
-        
+        <%= form_tag({ controller: "carts", action: "create" }, method: :post, class: "flex items-center") do %>
+          <%= hidden_field_tag "item_id", @item.id %>
+          <label for="quantity" class="text-white font-semibold text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl mr-2">Quantité:</label>
+          <%= number_field_tag "quantity", 1, min: 1, class: "w-12 text-center border rounded-md text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", id: "quantity" %>
+          <%= submit_tag 'Ajouter au panier', class: 'bg-gradient-to-r from-purple-300 to-purple-600 text-black font-semibold px-4 py-2 rounded-lg border border-gray-600 hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300 ml-2 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl' %>
+        <% end %>
         <%= link_to "Revenir à la liste", items_path, class: "bg-custom-color hover:bg-gray-400 text-white font-semibold py-1 px-2 rounded-full text-xxs sm:text-xs md:text-sm lg:text-base xl:text-lg" %>
       </div>
     </div>
