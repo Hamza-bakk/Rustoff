@@ -3,8 +3,9 @@ class User < ApplicationRecord
   after_create :create_cart
   has_one_attached :avatar
 
+  #Gérer par GEM DEVISE 
   def create_cart
-    Cart.create(user: self)
+    Cart.create(user: self) #Permt de créer un panier aprés au même moment que l'inscription
   end
 
   def welcome_send
