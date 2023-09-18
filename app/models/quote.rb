@@ -1,4 +1,6 @@
 class Quote < ApplicationRecord
+
+  # Validation : Assurez-vous que les éléments avec validates sont présents
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
