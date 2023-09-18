@@ -6,10 +6,8 @@
     
     <div class="w-full p-8 lg:w-1/2">
       <h2 class="text-2xl font-semibold text-white text-center">S'inscrire</h2>
-      
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-
         <div class="mt-4">
           <%= f.label :email, class: "block text-white text-sm font-bold mb-2" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" %>
@@ -32,7 +30,6 @@
           <%= f.submit "S'inscrire", class: 'bg-gradient-to-r from-purple-300 to-purple-600 text-black font-semibold px-7 py-3 rounded-lg border border-gray-600 hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300' %>
         </div>
       <% end %>
-
       <%= render "devise/shared/links" %>
     </div>
   </div>

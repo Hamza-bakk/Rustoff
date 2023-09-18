@@ -3,7 +3,6 @@
     <div class="hidden lg:block lg:w-1/2 bg-cover" style="background-image:url(<%= asset_path('dash.png') %>)"></div>
     <div class="w-full p-8 lg:w-1/2">
       <h2 class="text-2xl font-semibold text-white text-center">Devis</h2>
-      
       <%= form_with(model: @quote, url: quotes_path) do |form| %>
         <% if @quote.errors.any? %>
           <div class="bg-red-100 text-red-500 border border-red-400 px-4 py-3 rounded mb-4">

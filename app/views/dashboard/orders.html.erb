@@ -2,7 +2,6 @@
   <div class="flex items-center justify-center mt-10 w-full">
     <h1 class="text-4xl font-bold p-4 border-4 border-gray-500 rounded inline-block mb-10">Liste des commandes :</h1>
   </div>
-
   <div class="mt-6 text-center mb-10 w-full">
     <%= form_tag dashboard_orders_path, method: :get, class: "mb-4 w-full" do %>
       <label for="start_date" class="text-black font-semibold">Date de début :</label>
@@ -14,42 +13,40 @@
       <%= submit_tag "Rechercher", class: "bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4" %>
     <% end %>
   </div>
-
-<div class="overflow-x-auto w-full">
-  <table class="min-w-full bg-gray-800 border text-white rounded-lg">
-    <thead>
-      <tr>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">ID de la Commande</th>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Utilisateur</th>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prix Total</th>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Date de la Commande</th>
-        <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Articles commandés</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @orders.each do |order| %>
+  <div class="overflow-x-auto w-full">
+    <table class="min-w-full bg-gray-800 border text-white rounded-lg">
+      <thead>
         <tr>
-          <td class="px-4 py-2 border-b text-center"><%= order.id %></td>
-          <td class="px-4 py-2 border-b text-center"><%= order.user.email %></td>
-          <td class="px-4 py-2 border-b text-center"><%= number_to_currency(order.total_price, unit: '€') %></td>
-          <td class="px-4 py-2 border-b text-center"><%= order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-          <td class="px-4 py-2 border-b text-center">
-            <ul class="order-items list-disc pl-4">
-              <% order.order_items.each do |order_item| %>
-                <li>
-                  <%= order_item.quantity %> x <%= order_item.item.title %> :
-                  <%= number_to_currency(order_item.unit_price, unit: '€') %>
-                </li>
-              <% end %>
-            </ul>
-          </td>
+          <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">ID de la Commande</th>
+          <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Utilisateur</th>
+          <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Prix Total</th>
+          <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Date de la Commande</th>
+          <th class="px-4 py-2 bg-purple-400 text-black border-b text-center">Articles commandés</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="text-center mt-4 mb-12 w-full">
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="px-4 py-2 border-b text-center"><%= order.id %></td>
+            <td class="px-4 py-2 border-b text-center"><%= order.user.email %></td>
+            <td class="px-4 py-2 border-b text-center"><%= number_to_currency(order.total_price, unit: '€') %></td>
+            <td class="px-4 py-2 border-b text-center"><%= order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+            <td class="px-4 py-2 border-b text-center">
+              <ul class="order-items list-disc pl-4">
+                <% order.order_items.each do |order_item| %>
+                  <li>
+                    <%= order_item.quantity %> x <%= order_item.item.title %> :
+                    <%= number_to_currency(order_item.unit_price, unit: '€') %>
+                  </li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center mt-4 mb-12 w-full">
     <a href="/dashboard" class="bg-purple-400 hover:bg-purple-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Retour au Dashboard</a>
   </div>
 </div>
