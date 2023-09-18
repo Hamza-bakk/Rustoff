@@ -1,9 +1,10 @@
-<section class="w-1/2 bg-gray-800 p-6 bg-black rounded-lg shadow-lg mt-32 mb-10 h-108 mx-auto">
+<div class="w-1/2 bg-gray-800 p-6 bg-black rounded-lg shadow-lg mt-32 mb-10 h-108 mx-auto">
   <h2 class="text-white text-xl text-center font-semibold mb-4">Liste des Produits en Boutique :</h2>
+
   <% @items.each_slice(4) do |item_group| %>
-    <article class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       <% item_group.each do |item| %>
-        <section class="relative bg-white rounded-lg overflow-hidden shadow-md">
+        <div class="relative bg-white rounded-lg overflow-hidden shadow-md">
           <img src="<%= item.image_url %>" alt="<%= item.alt %>" class="w-full h-32 object-cover object-center">
           <div class="px-4 py-3">
             <h3 class="text-black font-bold text-sm mb-2 text-center"><%= item.title %></h3>
@@ -12,18 +13,20 @@
 
             <p class="text-black font-bold text-sm mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
           </div>
-            <%= link_to edit_item_path(item), class: "absolute bottom-0 left-0 mb-2 ml-2 text-blue-700 hover:text-blue-500", 'aria-label': "Éditer l'élément" do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
 
-            <%= form_for(item, url: item_path(item), method: :delete) do |f| %>
-              <%= f.button type: 'submit', class: "absolute bottom-0 right-0 mb-2 mr-2 text-red-700 hover:text-red-500", 'aria-label': "Supprimer l'élément" do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
+          <%= link_to edit_item_path(item), class: "absolute bottom-0 left-0 mb-2 ml-2 text-blue-700 hover:text-blue-500", 'aria-label': "Éditer l'élément" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+
+          <%= form_for(item, url: item_path(item), method: :delete) do |f| %>
+            <%= f.button type: 'submit', class: "absolute bottom-0 right-0 mb-2 mr-2 text-red-700 hover:text-red-500", 'aria-label': "Supprimer l'élément" do %>
+              <i class="fas fa-trash"></i>
             <% end %>
+          <% end %>
         </div>
       <% end %>
-    </article>
+    </div>
+
     <div class="my-6"></div>
   <% end %>
 
@@ -32,4 +35,4 @@
       Retour au Dashboard
     </a>
   </div>
-</section>
+</div>

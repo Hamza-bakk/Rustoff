@@ -66,7 +66,7 @@
           <p class="text-white text-xs sm:text-sm text-center"><%= item.description %></p>
           <p class="text-green-500 font-bold text-sm sm:text-base mt-1 sm:mt-2 text-center"><%= number_to_currency(item.price, unit: "€") %></p>
         </div>
-          <article href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-gradient-to-r from-purple-300 to-purple-600 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-lg hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300">
+          <a href="<%= item_path(item) %>" class="absolute bottom-0 right-0 mb-1 sm:mb-2 mr-1 sm:mr-2 bg-gradient-to-r from-purple-300 to-purple-600 text-black text-xs sm:text-sm font-bold py-1 px-2 sm:px-3 rounded-lg hover:scale-105 duration-200 hover:text-black hover:border-gray-800 hover:from-purple-600 hover:to-purple-300">
             Voir
           </a>
       </div>
