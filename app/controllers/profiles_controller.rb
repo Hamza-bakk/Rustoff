@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user  # Récupérez l'utilisateur actuellement connecté.
+    restrict_access unless current_user == @user
   end
 
   def edit
@@ -19,6 +20,11 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def restrict_access
+    flash[:alert] = "Accès refusé. Vous ne pouvez pas accéder au profil d'un autre utilisateur."
+    redirect_to root_path
+  end
 
   def profile_params
     params.require(:user).permit(:email)  # Autorisez uniquement la mise à jour de l'adresse e-mail de l'utilisateur.
