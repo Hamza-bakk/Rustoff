@@ -1,16 +1,1 @@
-<section id="<%= dom_id order_item %>">
-  <p>
-    <strong>Order:</strong>
-    <%= order_item.order_id %>
-  </p>
-
-  <p>
-    <strong>Item:</strong>
-    <%= order_item.item_id %>
-  </p>
-
-  <p>
-    <strong>Quantity:</strong>
-    <%= order_item.quantity %>
-  </p>
-</section>
+<%= link_to "Accéder à mes commandes", orders_path, class: "block bg-purple-400 hover:bg-purple-300 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-sm" %>
