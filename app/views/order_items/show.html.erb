@@ -1,10 +1,1 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @order_item %>
-
-<div>
-  <%= link_to "Edit this order item", edit_order_item_path(@order_item) %> |
-  <%= link_to "Back to order items", order_items_path %>
-
-  <%= button_to "Destroy this order item", @order_item, method: :delete %>
-</div>
+<%= link_to "Accéder à mes commandes", orders_path, class: "block bg-purple-400 hover:bg-purple-300 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-sm" %>
