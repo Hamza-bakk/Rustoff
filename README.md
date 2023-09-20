@@ -66,7 +66,7 @@ L'essence du projet consiste en la conception et le développement d'un site web
 ## :rocket: Links ##
 
 - Lien Trello : https://bitly.ws/USyi
-- Lien Production HEROKO : https://bitly.ws/UMCP
+- Lien Production HEROKO : https://bitly.ws/UMCP (Application en maitenance jusqu'au fin décembre 2023)
 - Base des données RUSTOFF : https://bitly.ws/USyb
 ## :rocket: Technologies ##
 
